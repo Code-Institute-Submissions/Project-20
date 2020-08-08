@@ -5,6 +5,8 @@ import reviews.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/', kimchis.views.index),
+    path('home/', kimchis.views.home,
+         name="home_route"),
+    path('kimchis/all', kimchis.views.all_kimchis),
     path('reviews/', reviews.views.index)
 ]
