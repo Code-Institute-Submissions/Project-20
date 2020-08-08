@@ -4,10 +4,10 @@
 {% block title %}Our Products{% endblock %}
 
 {% block content %}
-<p class="text-center mb-5 mt-5">Meet the best Kimchi in the town</p>
+<p class="text-center mb-5 mt-5">Meet the best Kimchi in town</p>
 <div class="row">
     {% for k in kimchis %}
-    <div class="col-3 mb-5">
+    <div class="col-3 mb-5 mt-5">
         ${{k.price}}<br>
         {{k.title}}<br>
         {{k.desc}}
