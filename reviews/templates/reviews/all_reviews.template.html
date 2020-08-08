@@ -3,5 +3,20 @@
 {% block title %}Reiviews{% endblock %}
 
 {% block content %}
-<h1>Reviews on I'm Kimch</h1>
+<section class="reviews">
+    <p class="h1 text-center mb-5 mt-5">Reviews on I'm Kimch</p>
+
+    {% for r in reviews %}
+    <a href="#">
+    <div class="card mb-4">
+    <div class="card-body">
+        <p>{{r.product_name}}</p>
+        <h5 class="card-title">{{r.title}}</h5>
+        <p class="card-text">{{r.content}}</p>
+        <p>{{r.published}}</p>
+    </div>
+    </div>
+    </a>
+    {% endfor %}
+</section>
 {% endblock %}

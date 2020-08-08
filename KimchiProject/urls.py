@@ -8,5 +8,5 @@ urlpatterns = [
     path('home/', kimchis.views.home,
          name="home_route"),
     path('kimchis/all', kimchis.views.all_kimchis),
-    path('reviews/', reviews.views.all_reviews)
+    path('reviews/all', reviews.views.all_reviews)
 ]
