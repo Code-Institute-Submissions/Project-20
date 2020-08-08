@@ -8,6 +8,13 @@ class MainIngredient(models.Model):
         return self.title
 
 
+class Tag(models.Model):
+    title = models.CharField(blank=False, max_length=50)
+
+    def __str__(self):
+        return self.title
+
+
 class Kimchi(models.Model):
     title = models.CharField(blank=False, max_length=255)
     desc = models.TextField(blank=False)
@@ -16,6 +23,7 @@ class Kimchi(models.Model):
     expiry_date = models.DateField(blank=False)
     main_ingredient = models.ForeignKey(
         MainIngredient, on_delete=models.CASCADE)
+    tags = models.ManyToManyField(Tag)
 
     def __str__(self):
         return self.title
