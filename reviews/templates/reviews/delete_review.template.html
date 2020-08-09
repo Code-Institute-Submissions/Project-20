@@ -1,0 +1,13 @@
+{% extends 'base.template.html' %}
+
+{% block title %}Reiviews{% endblock %}
+
+{% block content %}
+<p>Delete : {{review.title}}?</p>
+<h1>Are you sure you want to delete your review?</h1>
+<form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Yes"/>
+        <a href="{% url 'review_details_route' review_id=review.id %}">No</a>
+    </form>
+{% endblock %}

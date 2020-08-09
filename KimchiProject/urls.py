@@ -15,6 +15,8 @@ urlpatterns = [
     path('reviews/details/<review_id>', reviews.views.review_details,
          name="review_details_route"),
     path('reviews/update/<review_id>', reviews.views.update_review,
-         name="update_review_route")
+         name="update_review_route"),
+    path('reviews/delete/<review_id>', reviews.views.delete_review,
+         name="delete_review_route")
 
 ]

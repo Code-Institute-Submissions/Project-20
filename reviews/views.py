@@ -54,8 +54,16 @@ def update_review(request, review_id):
         return render(request, 'reviews/update_review.template.html', {
             'form': review_form,
             'review': review_being_updated
-    })
+        })
 
 
+def delete_review(request, review_id):
+    review_to_delete = get_object_or_404(Review, pk=review_id)
 
-
+    if request.method == "POST":
+        review_to_delete.delete()
+        return redirect(reverse(all_reviews))
+    else:
+        return render(request, 'reviews/delete_review.template.html', {
+            'review': review_to_delete
+        })
