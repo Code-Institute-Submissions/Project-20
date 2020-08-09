@@ -20,7 +20,9 @@ def create_review(request):
         create_form = ReviewForm(request.POST)
 
         if create_form.is_valid():
-            create_form.save()
+            review = create_form.save(commit=False)
+            review.user = request.user
+            review.save()
             messages.success(
                 request, "New review posted successfully!")
             return redirect(reverse(all_reviews))
