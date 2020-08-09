@@ -4,6 +4,7 @@
 {% block title %}Edit your review{% endblock %}
 
 {% block content %}
+<h1>{{review.title}} 을 위한 리뷰를 수정해 주세요!</h1>
 <form method="POST">
     {% csrf_token %}
     {{form|crispy}}

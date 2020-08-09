@@ -12,6 +12,8 @@ urlpatterns = [
     path('reviews/all', reviews.views.all_reviews,
          name="all_reviews_route"),
     path('reviews/create', reviews.views.create_review),
+    path('reviews/details/<review_id>', reviews.views.review_details,
+         name="review_details_route"),
     path('reviews/update/<review_id>', reviews.views.update_review,
          name="update_review_route")
 

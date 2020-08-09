@@ -3,7 +3,6 @@ from .models import Review
 from .forms import ReviewForm
 
 
-# Create your views here.
 def all_reviews(request):
     reviews = Review.objects.all()
     return render(request, 'reviews/all_reviews.template.html', {
@@ -29,6 +28,13 @@ def create_review(request):
         return render(request, 'reviews/create_review.template.html', {
             'form': create_form
         })
+
+
+def review_details(request, review_id):
+    review = get_object_or_404(Review, pk=review_id)
+    return render(request, 'reviews/review_details.template.html', {
+        'review': review
+    })
 
 
 def update_review(request, review_id):
