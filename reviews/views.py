@@ -53,7 +53,7 @@ def update_review(request, review_id):
         if review_form.is_valid():
             review_form.save()
             messages.success(
-                request, "The review updated successfully!")
+                request, "Review updated successfully!")
             return redirect(reverse(all_reviews))
         else:
             return render(request, 'reviews/update_review.template.html', {
@@ -74,7 +74,7 @@ def delete_review(request, review_id):
     if request.method == "POST":
         review_to_delete.delete()
         messages.success(
-                request, "The review deleted successfully!")
+                request, "Review deleted successfully!")
         return redirect(reverse(all_reviews))
     else:
         return render(request, 'reviews/delete_review.template.html', {

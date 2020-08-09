@@ -3,5 +3,43 @@
 {% block title %}Reiviews{% endblock %}
 
 {% block content %}
-<h1>View the details of your review submitted: {{review.title}}</h1>
+<h1 class="text-center py-5">Review on "{{review.product_name}}"</h1>
+
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <td colspan="2" id="TableImg">Product Image - upon clicking, redirect to Product details</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <td class="text-muted">Title</td>
+      <td colspan="2">{{review.title}}</td>
+    </tr>
+    <tr>
+      <td class="text-muted">User</td>
+      <td colspan="2">{{review.user}}</td>
+    </tr>
+    <tr>
+      <td class="text-muted">Post date</td>
+      <td colspan="2">{{review.published}}</td>
+    </tr>
+    <tr>
+      <td colspan="2" id="TableContent">{{review.content}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="row mx-auto mb-5">
+    <div class="col" id="fitBtn">
+        <a class="btn btn-outline-secondary" href="{% url 'all_reviews_route' %}">Go to list</a>
+        <a class="btn btn-outline-secondary px-3 float-right ml-1" href="{% url 'delete_review_route' review_id=review.id %}">Delete</a>
+        <a class="btn btn-outline-secondary px-4 float-right" href="{% url 'update_review_route' review_id=review.id %}">Edit</a>
+    </div>
+</div>
+
 {% endblock %}

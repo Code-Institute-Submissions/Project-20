@@ -1,4 +1,18 @@
+/* Remove hyperlink on a tag 'View all reviews' and 'View all kimchis' pages*/
 .reviews a, .kimchis a {
     color: inherit;
     text-decoration: none;
+}
+
+
+/* Make content field in review form wider by giving padding*/
+#TableImg, #TableContent {
+    padding-bottom: 15rem;
+}
+
+
+/* Make the button aligh with the content table in 'Review details' page */
+#fitBtn {
+    padding-left: 0;
+    padding-right: 0;
 }
