@@ -44,11 +44,26 @@
 	<!--navbar ends-->
 
 
-	<!--block content starts-->
+	
 	<div class="container">
-		{% block content %}{% endblock %}
+        <!--flash messages starts-->
+        {% if messages %}  
+            <div class="alert alert-success" id="flashMSG">    
+                {% for message in messages %}
+                <div>
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}  
+        <!--flash messages ends-->
+
+
+        <!--block content starts-->
+        {% block content %}{% endblock %}
+        <!--block content ends-->
 	</div>
-	<!--block content ends-->
+	
 
 
 	<!-- Optional JavaScript -->
@@ -61,6 +76,15 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
 		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
 	</script>
+
+    <!--for flash messages to dissappear after some time-->
+    <script>
+    setTimeout(function() {
+        $('#flashMSG').fadeOut();
+    }, 3000);
+    </script>
+
+    <!--block js starts-->
 	{% block js %}{% endblock %}
 </body>
 

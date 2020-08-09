@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import Review
 from .forms import ReviewForm
 
@@ -20,6 +21,8 @@ def create_review(request):
 
         if create_form.is_valid():
             create_form.save()
+            messages.success(
+                request, "New review posted successfully!")
             return redirect(reverse(all_reviews))
         else:
             return render(request, 'reviews/create_review.template.html', {
@@ -39,6 +42,7 @@ def review_details(request, review_id):
     })
 
 
+@ login_required
 def update_review(request, review_id):
     review_being_updated = get_object_or_404(Review, pk=review_id)
 
@@ -46,6 +50,8 @@ def update_review(request, review_id):
         review_form = ReviewForm(request.POST, instance=review_being_updated)
         if review_form.is_valid():
             review_form.save()
+            messages.success(
+                request, "The review updated successfully!")
             return redirect(reverse(all_reviews))
         else:
             return render(request, 'reviews/update_review.template.html', {
@@ -59,11 +65,14 @@ def update_review(request, review_id):
         })
 
 
+@ login_required
 def delete_review(request, review_id):
     review_to_delete = get_object_or_404(Review, pk=review_id)
 
     if request.method == "POST":
         review_to_delete.delete()
+        messages.success(
+                request, "The review deleted successfully!")
         return redirect(reverse(all_reviews))
     else:
         return render(request, 'reviews/delete_review.template.html', {
