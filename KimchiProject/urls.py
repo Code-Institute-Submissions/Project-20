@@ -9,6 +9,8 @@ urlpatterns = [
          name="home_route"),
     path('kimchis/all', kimchis.views.all_kimchis,
          name="all_kimchis_route"),
+    path('kimchis/details/<kimchi_id>', kimchis.views.kimchi_details,
+         name="kimchi_details_route"),
     path('reviews/all', reviews.views.all_reviews,
          name="all_reviews_route"),
     path('reviews/create', reviews.views.create_review),

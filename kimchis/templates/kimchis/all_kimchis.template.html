@@ -6,16 +6,16 @@
 {% block content %}
 <section class="kimchis">
     <p class="h1 text-center mb-5 mt-5">Meet the best Kimchi in town</p>
-    <a href="#">
-        <div class="row">
-            {% for k in kimchis %}
-            <div class="col-3 mb-5 mt-5">
+    <div class="row">
+        {% for k in kimchis %}
+        <div class="col-3 mb-5 mt-5">
+            <a href="{% url 'kimchi_details_route' kimchi_id=k.id%}">
                 ${{k.price}}<br>
                 {{k.title}}<br>
                 {{k.desc}}
-            </div>
-            {% endfor %}
+            </a>
         </div>
-    </a>
+        {% endfor %}
+    </div>
 </section>
 {% endblock%}
