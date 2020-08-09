@@ -7,7 +7,7 @@
     <p class="h1 text-center mb-5 mt-5">Reviews on I'm Kimch</p>
 
     {% for r in reviews %}
-    <a href="#">
+    <a href="{% url 'update_review_route' review_id=r.id %}">
     <div class="card mb-4">
     <div class="card-body">
         <p>{{r.product_name}}</p>
