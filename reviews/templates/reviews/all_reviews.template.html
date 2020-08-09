@@ -6,14 +6,22 @@
 <section class="reviews">
     <p class="h1 text-center mb-5 mt-5">Reviews on I'm Kimch</p>
 
+    <div class="row mx-auto mb-3">
+        <div class="col" id="fitBtn">
+            <a class="btn btn-outline-secondary float-right" href="{% url 'create_review_route' %}">Post a review</a>
+        </div>
+    </div>
+
     {% for r in reviews %}
     <a href="{% url 'review_details_route' review_id=r.id %}">
     <div class="card mb-4">
     <div class="card-body">
         <p>{{r.product_name}}</p>
-        <h5 class="card-title">{{r.title}}</h5>
-        <p class="card-text">{{r.content}}</p>
-        <p>{{r.published}}</p>
+        <hr>
+        <h4 class="card-title">{{r.title}}</h4>
+        <p class="card-text font-italic">{{r.content}}</p>
+        <p class="text-muted">{{r.published}}</p>
+        <p class="text-muted">Posted by {{r.user}}</p>
     </div>
     </div>
     </a>

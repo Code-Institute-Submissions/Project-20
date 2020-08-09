@@ -3,5 +3,30 @@
 {% block title %}{{kimchi.title}}{% endblock %}
 
 {% block content %}
-your kimchi: {{kimchi.title}}
+<div class="row py-5">
+    <div class="col">
+        <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td id="TableImg">Image to up uploaded</td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+    <div class="col">
+        <p>Product Name: {{kimchi.title}}</p>
+        <p>Desc: {{kimchi.desc}}</p>
+        <p>Price: ${{kimchi.price}}</p>
+        <p>Manufactured Date: {{kimchi.manufactured_date}}</p>
+        <p>Expiry Date: {{kimchi.expiry_date}}</p>
+        <p>Main Ingredient: {{kimchi.main_ingredient}}</p>
+        <p>Tags:
+            {% for t in kimchi.tags.all %}
+            <span class="badge badge-pill badge-primary">{{t.title}}</span>
+            {%endfor%}
+        </p>
+    </div>
+</div>
+
 {% endblock %}
