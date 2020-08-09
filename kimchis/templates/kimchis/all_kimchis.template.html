@@ -4,14 +4,18 @@
 {% block title %}Our Products{% endblock %}
 
 {% block content %}
-<p class="h1 text-center mb-5 mt-5">Meet the best Kimchi in town</p>
-<div class="row">
-    {% for k in kimchis %}
-    <div class="col-3 mb-5 mt-5">
-        ${{k.price}}<br>
-        {{k.title}}<br>
-        {{k.desc}}
-    </div>
-    {% endfor %}
-</div>
+<section class="kimchis">
+    <p class="h1 text-center mb-5 mt-5">Meet the best Kimchi in town</p>
+    <a href="#">
+        <div class="row">
+            {% for k in kimchis %}
+            <div class="col-3 mb-5 mt-5">
+                ${{k.price}}<br>
+                {{k.title}}<br>
+                {{k.desc}}
+            </div>
+            {% endfor %}
+        </div>
+    </a>
+</section>
 {% endblock%}
