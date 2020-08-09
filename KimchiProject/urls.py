@@ -1,10 +1,11 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 import kimchis.views
 import reviews.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('home/', kimchis.views.home,
          name="home_route"),
     path('kimchis/all', kimchis.views.all_kimchis,
