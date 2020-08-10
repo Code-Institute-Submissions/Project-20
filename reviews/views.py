@@ -39,8 +39,10 @@ def create_review(request):
 
 def review_details(request, review_id):
     review = get_object_or_404(Review, pk=review_id)
+    comments = Comment.objects.all().filter(review=review)
     return render(request, 'reviews/review_details.template.html', {
-        'review': review
+        'review': review,
+        'comments': comments
     })
 
 
@@ -95,7 +97,7 @@ def create_comment(request, review_id):
             comment.save()
             messages.success(
                 request, "New comment registered successfully!")
-            return redirect(reverse(all_reviews))
+            return redirect(reverse(review_details, args=(review_id, )))
         else:
             return HttpResponse("Error with forms")
     else:
@@ -104,3 +106,5 @@ def create_comment(request, review_id):
             'form': form,
             'review': review
         })
+
+
