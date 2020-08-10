@@ -1,8 +1,8 @@
-from django.shortcuts import render, HttpResponse, get_object_or_404
+from django.shortcuts import render, HttpResponse, get_object_or_404, redirect, reverse
+from django.contrib.auth.models import auth
 from .models import Kimchi
 
 
-# Create your views here.
 def home(request):
     return render(request, 'kimchis/home.template.html')
 
@@ -21,3 +21,6 @@ def kimchi_details(request, kimchi_id):
     })
 
 
+def logout(request):
+    auth.logout(request)
+    return redirect(reverse(home))
