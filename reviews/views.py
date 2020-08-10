@@ -1,8 +1,8 @@
 from django.shortcuts import render, HttpResponse, redirect, reverse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Review
-from .forms import ReviewForm
+from .models import Review, Comment
+from .forms import ReviewForm, CommentForm
 
 
 def all_reviews(request):
@@ -79,4 +79,28 @@ def delete_review(request, review_id):
     else:
         return render(request, 'reviews/delete_review.template.html', {
             'review': review_to_delete
+        })
+
+ 
+@login_required
+def create_comment(request, review_id):
+    review = get_object_or_404(Review, pk=review_id)
+
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.review = review
+            comment.user = request.user
+            comment.save()
+            messages.success(
+                request, "New comment registered successfully!")
+            return redirect(reverse(all_reviews))
+        else:
+            return HttpResponse("Error with forms")
+    else:
+        form = CommentForm()
+        return render(request, 'reviews/create_comment.template.html', {
+            'form': form,
+            'review': review
         })

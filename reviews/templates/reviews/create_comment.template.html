@@ -1,0 +1,18 @@
+{% extends 'base.template.html' %}
+{%load crispy_forms_tags %} 
+
+{% block title %}Register a comment{% endblock %}
+
+{% block content %}
+<p class="h2 mt-5 mb-4">Add a comment on the following review</p>
+<blockquote class="blockquote text-center">
+  <p class="mb-0">{{review.content}}</p>
+  <footer class="blockquote-footer">by '{{review.user}}' <cite title="Source Title">for our product '{{review.product_name}}'</cite></footer>
+</blockquote>
+
+<form method="POST">
+    {% csrf_token %} 
+    {{form|crispy}}
+    <input type="submit" class="btn btn-primary" value="Register"/>
+</form> 
+{% endblock %}

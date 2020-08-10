@@ -12,7 +12,7 @@
 
 
 /* Make the button aligh with the content table in 'Review details' page */
-#fitBtn {
+#fitBtn, #fitBtn2 {
     padding-left: 0;
     padding-right: 0;
 }

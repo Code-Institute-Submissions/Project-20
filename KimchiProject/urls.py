@@ -21,6 +21,8 @@ urlpatterns = [
     path('reviews/update/<review_id>', reviews.views.update_review,
          name="update_review_route"),
     path('reviews/delete/<review_id>', reviews.views.delete_review,
-         name="delete_review_route")
+         name="delete_review_route"),
+    path('reviews/create/comment/<review_id> ', reviews.views.create_comment,
+         name="create_comment_route"),
 
 ]
