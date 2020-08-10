@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date
 from kimchis.models import Kimchi
 
 
@@ -10,15 +11,21 @@ class Review(models.Model):
     content = models.TextField(blank=False)
     published = models.DateField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    last_updated = models.DateField(blank=True, default=date.today)
 
     def __str__(self):
         return self.title
+
+    def save(self, *args, **kwargs):
+        self.last_updated = date.today()
+        super().save(*args, **kwargs)
 
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.TextField(blank=False)
     review = models.ForeignKey(Review, on_delete=models.CASCADE)
+    comment_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.text[0:50]
