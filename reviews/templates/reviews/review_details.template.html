@@ -32,7 +32,7 @@
       <td colspan="2">{{review.last_updated}}</td>
     </tr>
     <tr>
-      <td colspan="2" id="TableContent">{{review.content}}</td>
+      <td colspan="2" id="TableContent"><br>{{review.content}}</td>
     </tr>
   </tbody>
 </table>
@@ -48,14 +48,9 @@
 
 
 <!--Comments starts-->
-<p>Comments</p>
-<hr>
+<p class="h4">Comments</p>
+<hr class="mb-0">
 
-<div class="row mx-auto mb-5">
-    <div class="col" id="fitBtn2">
-        <a class="btn btn-outline-secondary float-right" href="{% url 'create_comment_route' review_id=review.id %}">Leave a comment</a>
-    </div>
-</div>
 
 
 {% for c in comments %}
@@ -63,10 +58,17 @@
     <tr>
       <td width="100">{{c.user}}</td>
       <td>{{c.text}}</td>
-      <td width="200" class="text-right">{{c.comment_date}}</td>
+      <td class="text-right">{{c.comment_date}}</td>
     </tr>
 </table>
 {%endfor%}
+
+
+<div class="row mx-auto mb-5">
+    <div class="col" id="fitBtn2">
+        <a class="btn btn-outline-secondary btn-block" href="{% url 'create_comment_route' review_id=review.id %}">Leave a comment</a>
+    </div>
+</div>
 <!--Comments ends-->
 {% endblock %}
 
