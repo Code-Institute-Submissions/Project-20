@@ -4,19 +4,43 @@
 {% block title %}Our Products{% endblock %}
 
 {% block content %}
-<section class="kimchis">
+<section class="allkimchis">
     <p class="h1 text-center mb-5 mt-5">Meet the best Kimchi in town</p>
+
+
     <div class="row">
-        {% for k in kimchis %}
-        <div class="col-3 mb-5 mt-5">
-            <a href="{% url 'kimchi_details_route' kimchi_id=k.id%}">
-                ${{k.price}}<br>
-                {{k.title}}<br>
-                {{k.desc}}
-            </a>
+        <!--Search engine starts-->
+        <div class="col-sm-2 mt-5">
+            <form method="GET">
+                <div class="form-group mt-3">
+                    {{form.as_p}}
+                </div>
+                <input type="submit" id="searchBtn" class="btn btn-outline-dark mt-2" value="Search"/>
+            </form>
         </div>
-        {% endfor %}
+        <!--Search engine ends-->
+        
+        <div class="col-sm-10">
+            <div class="row">
+                {% for k in kimchis %}
+                <div class="col-sm-3 mb-5 mt-5">
+                    <div class="card h-100 shadow mb-4" id="cardEffect">
+                        <a href="{% url 'kimchi_details_route' kimchi_id=k.id%}">
+                            <img class="card-img-top" src="#" alt="Product Image">
+                            <div class="card-body">
+                                <p class="card-title h4">{{k.title}}</p>
+                                <p>(Main ingredient: {{k.main_ingredient.title}})</p>
+                                <p>{{k.desc}}</p>
+                                <p>${{k.price}}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    
     </div>
 </section>
-{% endblock%}
+{% endblock %}
 

@@ -1,9 +1,6 @@
 {% extends 'base.template.html' %}
-{% load crispy_forms_tags %}
-
 
 {% block title %}I'm Kimchi{% endblock %}
-
 
 {% block content %}
 {% if request.user.is_authenticated  %}
@@ -11,18 +8,4 @@
 {% else %}
    <p>Please <a href="{% url 'account_login' %}">Login</a></p>
 {%endif%}
-
-
-<form method="GET">
-    {{form|crispy}}
-    <input type="submit" value="Search"/>
-</form>
-
-
-<h2 class="mt-5">Kimchi found</h2>
-<ul>
-{% for k in kimchis %}
-    <li>{{k.title}} ({{k.main_ingredient.title}})</li>
-{% endfor %}
-</ul>
 {% endblock %}

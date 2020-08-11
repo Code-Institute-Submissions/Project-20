@@ -1,18 +1,34 @@
-/* Remove hyperlink on a tag 'View all reviews' and 'View all kimchis' pages*/
-.reviews a, .kimchis a {
+/* To remove hyperlink on <a> tag in 'View all reviews' and 'View all kimchis' pages*/
+.allreviews a, .allkimchis a {
     color: inherit;
     text-decoration: none;
 }
 
 
-/* Make content field in review form wider by giving padding*/
+/* To make the contents field in the review form to be shown wider, by giving padding*/
 #TableImg, #TableContent {
     padding-bottom: 15rem;
 }
 
 
-/* Make the button aligh with the content table in 'Review details' page */
+/* To make the width of the buttons to be align with the contents table in 'Review details' page */
 #fitBtn, #fitBtn2 {
     padding-left: 0;
     padding-right: 0;
+}
+
+
+/* To give user-interactions on display cards upon mouseover */
+#cardEffect {
+    transition: 0.5s ease;
+}
+
+#cardEffect:hover {
+    transform: scale(1.1);
+}
+
+
+/* Search engine*/
+#id_title, #id_main_ingredient, #searchBtn {
+    width: 9rem;
 }

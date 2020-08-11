@@ -6,6 +6,10 @@ from .models import Kimchi
 
 
 def home(request):
+    return render(request, 'kimchis/home.template.html')
+
+
+def all_kimchis(request):
     form = SearchForm(request.GET)
 
     if request.GET:
@@ -21,23 +25,16 @@ def home(request):
 
         kimchis = Kimchi.objects.all()
         kimchis = kimchis.filter(queries)
-        return render(request, 'kimchis/home.template.html', {
+        return render(request, 'kimchis/all_kimchis.template.html', {
             'form': form,
             'kimchis': kimchis
         })
     else:
         kimchis = Kimchi.objects.all()
-        return render(request, 'kimchis/home.template.html', {
+        return render(request, 'kimchis/all_kimchis.template.html', {
             'form': form,
             'kimchis': kimchis
         })
-
-
-def all_kimchis(request):
-    kimchis = Kimchi.objects.all()
-    return render(request, 'kimchis/all_kimchis.template.html', {
-        'kimchis': kimchis
-    })
 
 
 def kimchi_details(request, kimchi_id):
