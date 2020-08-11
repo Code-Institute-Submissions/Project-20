@@ -1,10 +1,32 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect, reverse
 from django.contrib.auth.models import auth
+from django.db.models import Q 
+from .forms import SearchForm
 from .models import Kimchi
 
 
 def home(request):
-    return render(request, 'kimchis/home.template.html')
+    form = SearchForm(request.GET)
+
+    if request.GET:
+        queries = ~Q(pk__in=[]) 
+
+        if 'title' in request.GET and request.GET['title']:
+            title = request.GET['title']
+            queries = queries & Q(title__icontains=title)
+
+        kimchis = Kimchi.objects.all()
+        kimchis = kimchis.filter(queries)
+        return render(request, 'kimchis/home.template.html', {
+            'form': form,
+            'kimchis': kimchis
+        })
+    else:
+        kimchis = Kimchi.objects.all()
+        return render(request, 'kimchis/home.template.html', {
+            'form': form,
+            'kimchis': kimchis
+        })
 
 
 def all_kimchis(request):
@@ -24,3 +46,4 @@ def kimchi_details(request, kimchi_id):
 def logout(request):
     auth.logout(request)
     return redirect(reverse(home))
+
