@@ -22,7 +22,7 @@
 <h2 class="mt-5">Kimchi found</h2>
 <ul>
 {% for k in kimchis %}
-    <li>{{k.title}}</li>
+    <li>{{k.title}} ({{k.main_ingredient.title}})</li>
 {% endfor %}
 </ul>
 {% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, redirect, reverse
 from django.contrib.auth.models import auth
-from django.db.models import Q 
+from django.db.models import Q
 from .forms import SearchForm
 from .models import Kimchi
 
@@ -9,11 +9,15 @@ def home(request):
     form = SearchForm(request.GET)
 
     if request.GET:
-        queries = ~Q(pk__in=[]) 
+        queries = ~Q(pk__in=[])
 
         if 'title' in request.GET and request.GET['title']:
             title = request.GET['title']
             queries = queries & Q(title__icontains=title)
+
+        if 'main_ingredient' in request.GET and request.GET['main_ingredient']:
+            main_ingredient_id = request.GET['main_ingredient']
+            queries = queries & Q(main_ingredient=main_ingredient_id)
 
         kimchis = Kimchi.objects.all()
         kimchis = kimchis.filter(queries)
