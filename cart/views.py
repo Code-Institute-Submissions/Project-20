@@ -24,3 +24,10 @@ def add_to_cart(request, kimchi_id):
     print(request.session['shopping_cart'])
     return HttpResponse("Kimchi added")
 
+
+def view_cart(request):
+    cart = request.session['shopping_cart']
+    return render(request, 'cart/view_cart.template.html', {
+        'cart': cart
+    })
+

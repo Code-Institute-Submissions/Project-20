@@ -7,8 +7,8 @@
 <ul>
     {%for key, i in cart.items %}
     <li>
-        {{i.title}} x {{i.qty}}<br>
-        ${{i.price}}<br>
+        {{i.name}} x {{i.qty}}<br>
+        price per item: ${{i.price}}<br>
     </li>
     {% endfor %}
 </ul>
