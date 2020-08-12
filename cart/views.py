@@ -31,3 +31,16 @@ def view_cart(request):
         'cart': cart
     })
 
+
+def remove_from_cart(request, kimchi_id):
+    cart = request.session['shopping_cart']
+
+    if kimchi_id in cart:
+        del cart[kimchi_id]
+
+        # save back the shopping cart into the session
+        request.session['shopping_cart'] = cart
+
+        messages.success(request, "The item removed succesfully")
+    return redirect(reverse('view_cart_route'))
+

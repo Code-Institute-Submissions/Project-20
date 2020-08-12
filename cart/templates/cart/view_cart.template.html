@@ -9,6 +9,7 @@
     <li>
         {{i.name}} x {{i.qty}}<br>
         price per item: ${{i.price}}<br>
+        <a href="{% url 'remove_from_cart_route' kimchi_id=i.id %}" class="btn btn-primary btn-sm">Remove</a>
     </li>
     {% endfor %}
 </ul>
