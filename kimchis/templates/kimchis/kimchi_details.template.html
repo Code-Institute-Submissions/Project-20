@@ -18,8 +18,8 @@
         <p>Product Name: {{kimchi.title}}</p>
         <p>Desc: {{kimchi.desc}}</p>
         <p>Price: ${{kimchi.price}}</p>
-        <p>Manufactured Date: {{kimchi.manufactured_date}}</p>
-        <p>Expiry Date: {{kimchi.expiry_date}}</p>
+        <p>Manufactured Date: {{kimchi.manufactured_date|date:"d.m.Y"}}</p>
+        <p>Expiry Date: {{kimchi.expiry_date|date:"d.m.Y"}}</p>
         <p>Main Ingredient: {{kimchi.main_ingredient}}</p>
         <p>Tags:
             {% for t in kimchi.tags.all %}
