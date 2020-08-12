@@ -24,5 +24,6 @@ urlpatterns = [
          name="delete_review_route"),
     path('reviews/comment/create/<review_id> ', reviews.views.create_comment,
          name="create_comment_route"),
+    path('cart/', include('cart.urls'))
 
 ]

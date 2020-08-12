@@ -1,0 +1,15 @@
+{% extends 'base.template.html' %}
+
+{% block title %}{{kimchi.title}}{% endblock %}
+
+{% block content %}
+<h1>Your Shopping Cart</h1>
+<ul>
+    {%for key, i in cart.items %}
+    <li>
+        {{i.title}} x {{i.qty}}<br>
+        ${{i.price}}<br>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

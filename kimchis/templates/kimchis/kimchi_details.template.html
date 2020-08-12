@@ -24,9 +24,12 @@
         <p>Tags:
             {% for t in kimchi.tags.all %}
             <span class="badge badge-pill badge-primary">{{t.title}}</span>
-            {%endfor%}
+            {% endfor %}
         </p>
     </div>
+</div>
+<div>
+    <a class="btn btn-primary" href="{% url 'add_to_cart_route' kimchi_id=kimchi.id %}">Add to cart</a>
 </div>
 
 {% endblock %}
