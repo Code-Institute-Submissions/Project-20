@@ -50,40 +50,51 @@ def review_details(request, review_id):
 def update_review(request, review_id):
     review_being_updated = get_object_or_404(Review, pk=review_id)
 
-    if request.method == 'POST':
-        review_form = ReviewForm(request.POST, instance=review_being_updated)
-        if review_form.is_valid():
-            review_form.save()
-            messages.success(
-                request, "Review updated successfully!")
-            return redirect(reverse(all_reviews))
+    if review_being_updated.user == request.user:
+        review_being_updated = get_object_or_404(Review, pk=review_id)
+
+        if request.method == 'POST':
+            review_form = ReviewForm(
+                request.POST, instance=review_being_updated)
+            if review_form.is_valid():
+                review_form.save()
+                messages.success(
+                    request, "Review updated successfully!")
+                return redirect(reverse(all_reviews))
+            else:
+                return render(request, 'reviews/update_review.template.html', {
+                    'form': review_form
+                })
         else:
+            review_form = ReviewForm(instance=review_being_updated)
             return render(request, 'reviews/update_review.template.html', {
-                'form': review_form
+                'form': review_form,
+                'review': review_being_updated
             })
     else:
-        review_form = ReviewForm(instance=review_being_updated)
-        return render(request, 'reviews/update_review.template.html', {
-            'form': review_form,
-            'review': review_being_updated
-        })
+        return HttpResponse("You are not allowed. This reveiw is not yours.")
 
 
 @login_required
 def delete_review(request, review_id):
     review_to_delete = get_object_or_404(Review, pk=review_id)
 
-    if request.method == "POST":
-        review_to_delete.delete()
-        messages.success(
-                request, "Review deleted successfully!")
-        return redirect(reverse(all_reviews))
-    else:
-        return render(request, 'reviews/delete_review.template.html', {
-            'review': review_to_delete
-        })
+    if review_to_delete.user == request.user:
+        review_to_delete = get_object_or_404(Review, pk=review_id)
 
- 
+        if request.method == "POST":
+            review_to_delete.delete()
+            messages.success(
+                request, "Review deleted successfully!")
+            return redirect(reverse(all_reviews))
+        else:
+            return render(request, 'reviews/delete_review.template.html', {
+                'review': review_to_delete
+            })
+    else:
+        return HttpResponse("You are not allowed. This review is not yours.")
+
+
 @login_required
 def create_comment(request, review_id):
     review = get_object_or_404(Review, pk=review_id)
@@ -106,5 +117,3 @@ def create_comment(request, review_id):
             'form': form,
             'review': review
         })
-
-
