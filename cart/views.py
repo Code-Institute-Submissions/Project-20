@@ -22,8 +22,6 @@ def add_to_cart(request, kimchi_id):
 
     # save the shopping cart back to the session
     request.session['shopping_cart'] = cart
-
-    print(request.session['shopping_cart'])
     return redirect(reverse('view_cart_route'))
 
 
