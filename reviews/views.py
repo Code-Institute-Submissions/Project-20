@@ -46,7 +46,7 @@ def review_details(request, review_id):
     })
 
 
-@ login_required
+@login_required
 def update_review(request, review_id):
     review_being_updated = get_object_or_404(Review, pk=review_id)
 
@@ -69,7 +69,7 @@ def update_review(request, review_id):
         })
 
 
-@ login_required
+@login_required
 def delete_review(request, review_id):
     review_to_delete = get_object_or_404(Review, pk=review_id)
 
