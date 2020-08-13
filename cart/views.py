@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse, HttpResponse
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from kimchis.models import Kimchi
 
 
+@login_required
 def add_to_cart(request, kimchi_id):
     cart = request.session.get('shopping_cart', {})
 
@@ -25,6 +27,7 @@ def add_to_cart(request, kimchi_id):
     return redirect(reverse('view_cart_route'))
 
 
+@login_required
 def view_cart(request):
     cart = request.session['shopping_cart']
 
@@ -38,6 +41,7 @@ def view_cart(request):
     })
 
 
+@login_required
 def remove_from_cart(request, kimchi_id):
     cart = request.session['shopping_cart']
 
@@ -47,5 +51,6 @@ def remove_from_cart(request, kimchi_id):
         # save back the shopping cart into the session
         request.session['shopping_cart'] = cart
 
-        messages.success(request, "The item removed succesfully")
+    messages.success(request, "The item removed succesfully")
     return redirect(reverse('view_cart_route'))
+
