@@ -12,15 +12,14 @@
     <input type="submit" class="btn btn-primary"/>
 </form>
 
-  
+<!--Uploading images starts-->
 <div class="status">
     <h2>Status</h2>
-    <span class="status_value">Idle</span>
+    <span class="status_value"></span>
 </div>
 
-<div class="uploaded_info_holder">
-
-</div>
+<div class="uploaded_info_holder"></div>
+<!--Uploading images ends-->
 {% endblock %}
 
 
@@ -46,16 +45,14 @@
         progress: function () {
             $('.status_value').text('Uploading...');
         },
-        })
-        .on('cloudinarydone', function (e, data) {
-            $('.status_value').text('Updating backend...');
+        }).on('cloudinarydone', function (e, data) {
+            $('.status_value').text('Upload done');
             
             // for debugging
             var info = $('<div class="uploaded_info"/>');
-            $(info).append($('<div class="data"/>').append(prettydump(data.result)));
             $(info).append($('<div class="image"/>').append(
             $.cloudinary.image(data.result.public_id, {
-            format: data.result.format, width: 150, height: 150, crop: "fill"
+                format: data.result.format, width: 150, height: 150, crop: "fill"
             })
             ));
             $('.uploaded_info_holder').append(info);
