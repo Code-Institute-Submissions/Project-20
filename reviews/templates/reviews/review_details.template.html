@@ -1,17 +1,12 @@
 {% extends 'base.template.html' %}
+{% load cloudinary %}
 
 {% block title %}Reiviews{% endblock %}
 
 {% block content %}
 <h1 class="text-center py-5">Review on "{{review.product_name}}"</h1>
 
-<table class="table table-bordered">
-  <tbody>
-    <tr>
-      <td colspan="2" id="TableImg">Product Image - upon clicking, redirect to Product details</td>
-    </tr>
-  </tbody>
-</table>
+<img class="card-img-top" {% cloudinary review.cover %}/>
 
 <table class="table table-bordered">
   <tbody>

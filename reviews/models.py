@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 from datetime import date
 from kimchis.models import Kimchi
 
@@ -12,6 +13,7 @@ class Review(models.Model):
     published = models.DateField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     last_updated = models.DateField(blank=True, default=date.today)
+    cover = CloudinaryField()
 
     def __str__(self):
         return self.title
