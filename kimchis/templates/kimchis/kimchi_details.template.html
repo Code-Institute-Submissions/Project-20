@@ -1,4 +1,5 @@
 {% extends 'base.template.html' %}
+{% load cloudinary %}
 
 {% block title %}{{kimchi.title}}{% endblock %}
 
@@ -8,7 +9,7 @@
         <table class="table table-bordered">
         <tbody>
             <tr>
-                <td id="TableImg">Image to up uploaded</td>
+                <img class="card-img-top" {% cloudinary kimchi.cover %}/>
             </tr>
         </tbody>
         </table>

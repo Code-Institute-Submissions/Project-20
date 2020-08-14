@@ -6,7 +6,7 @@
 
 
 /* To make the contents field in the review form to be shown wider, by giving padding*/
-#TableImg, #TableContent {
+#TableContent {
     padding-bottom: 15rem;
 }
 

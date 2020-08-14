@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 
 class MainIngredient(models.Model):
@@ -24,6 +25,7 @@ class Kimchi(models.Model):
     main_ingredient = models.ForeignKey(
         MainIngredient, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
+    cover = CloudinaryField()
 
     def __str__(self):
         return self.title
