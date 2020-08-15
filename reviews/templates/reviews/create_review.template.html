@@ -14,10 +14,9 @@
 
 <!--Uploading images starts-->
 <div class="status">
-    <h2>Status</h2>
     <span class="status_value"></span>
 </div>
-
+<br>
 <div class="uploaded_info_holder"></div>
 <!--Uploading images ends-->
 {% endblock %}
@@ -46,7 +45,7 @@
             $('.status_value').text('Uploading...');
         },
         }).on('cloudinarydone', function (e, data) {
-            $('.status_value').text('Upload done');
+            $('.status_value').text('Uploaded');
             
             // for debugging
             var info = $('<div class="uploaded_info"/>');

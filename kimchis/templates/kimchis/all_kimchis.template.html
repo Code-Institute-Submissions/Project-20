@@ -33,6 +33,7 @@
                                 <p class="card-title h4">{{k.title}}</p>
                                 <p>Main Ingredient: {{k.main_ingredient.title}}</p>
                                 <p>${{k.price}}</p>
+                                <a class="btn btn-outline-success" href="{% url 'add_to_cart_route' kimchi_id=k.id %}">Add to cart</a>
                             </div>
                         </a>
                     </div>

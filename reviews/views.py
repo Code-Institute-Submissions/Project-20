@@ -23,9 +23,10 @@ def create_review(request):
             review = create_form.save(commit=False)
             review.user = request.user
             review.save()
+            review_id = review.id
             messages.success(
                 request, "New review posted successfully!")
-            return redirect(reverse(all_reviews))
+            return redirect(reverse(review_details, args=(review_id, )))
         else:
             return render(request, 'reviews/create_review.template.html', {
                 'form': create_form
