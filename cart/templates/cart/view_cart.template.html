@@ -8,10 +8,16 @@
     {%for key, i in cart.items %}
     <li>
         {{i.name}} x {{i.qty}}<br>
-        price per item: ${{i.price|floatformat:2}}<br>
-        <a href="{% url 'remove_from_cart_route' kimchi_id=i.id %}" class="btn btn-primary btn-sm">Remove</a>
+        Price per Item: ${{i.price|floatformat:2}}<br>
+        Total price: ${{i.total_price}}
+        <form method="POST" action="{% url 'update_quantity_route' kimchi_id=i.id %}">
+            {%csrf_token%}
+            <input type="text" name="qty" value="{{i.qty}}" style="width: 40px;"/>
+            <input type="submit" class="btn btn-primary btn-sm" value="Update"/>
+            <a href="{% url 'remove_from_cart_route' kimchi_id=i.id %}" class="btn btn-primary btn-sm">Remove</a>
+        </form>
     </li>
     {% endfor %}
 </ul>
-<h3>total price: ${{total|floatformat:2}}</h3>
+<h3>Total Price: ${{total|floatformat:2}}</h3>
 {% endblock %}

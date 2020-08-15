@@ -15,9 +15,11 @@ def add_to_cart(request, kimchi_id):
             'id': kimchi_id,
             'name': kimchi_to_be_added.title,
             'price': float(kimchi_to_be_added.price),
-            'qty': 1
+            'qty': 1,
+            'total_price': float(kimchi_to_be_added.price)
         }
-        messages.success(request, f"Added '{kimchi_to_be_added.title}' to the shopping cart")
+        messages.success(
+            request, f"Added '{kimchi_to_be_added.title}' to the shopping cart")
 
     else:
         cart[kimchi_id]['qty'] += 1
@@ -33,7 +35,7 @@ def view_cart(request):
 
     total = 0
     for k, v in cart.items():
-        total += float(v['price'])
+        total += float(v['price']) * int(v['qty'])
 
     return render(request, 'cart/view_cart.template.html', {
         'cart': cart,
@@ -54,3 +56,19 @@ def remove_from_cart(request, kimchi_id):
     messages.success(request, "The item removed succesfully")
     return redirect(reverse('view_cart_route'))
 
+
+@login_required
+def update_quantity(request, kimchi_id):
+    cart = request.session['shopping_cart']
+
+    if kimchi_id in cart:
+        cart[kimchi_id]['qty'] = request.POST['qty']
+        cart[kimchi_id]['total_price'] = int(
+            request.POST['qty']) * float(cart[kimchi_id]['price'])
+        request.session['shopping_cart'] = cart
+        messages.success(
+            request, f"Quantity for {cart[kimchi_id]['name']} has been changed")
+        return redirect(reverse('view_cart_route'))
+    else:
+        messages.success(request, "Kimchi does not exitst in your cart")
+        return redirect(reverse('view_cart_route'))

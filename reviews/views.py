@@ -61,7 +61,7 @@ def update_review(request, review_id):
                 review_form.save()
                 messages.success(
                     request, "Review updated successfully!")
-                return redirect(reverse(all_reviews))
+                return redirect(reverse(review_details, args=(review_id, )))
             else:
                 return render(request, 'reviews/update_review.template.html', {
                     'form': review_form
