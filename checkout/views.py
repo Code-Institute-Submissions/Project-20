@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, HttpResponse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.conf import settings
 import stripe
 from kimchis.models import Kimchi
@@ -6,6 +6,7 @@ from .models import Purchase
 from django.contrib.sites.models import Site
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 def checkout(request):
@@ -42,7 +43,10 @@ def checkout(request):
 
 
 def checkout_success(request):
-    return HttpResponse("Checkout success")
+    # empty the shopping cart
+    request.session['shopping_cart'] = {}
+    messages.success(request, "Your purchase made successfully")
+    return redirect(reverse("all_kimchis_route"))
 
 
 def checkout_cancelled(request):
