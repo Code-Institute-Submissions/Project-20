@@ -3,6 +3,7 @@ from django.conf import settings
 import stripe
 from kimchis.models import Kimchi
 from django.contrib.sites.models import Site
+from django.views.decorators.csrf import csrf_exempt
 
 
 def checkout(request):
@@ -42,3 +43,36 @@ def checkout_success(request):
 
 def checkout_cancelled(request):
     return HttpResponse("Checkout cancelled")
+
+
+@csrf_exempt
+def payment_completed(request):
+    payload = request.body
+
+    # verify that the payment is legit
+    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+
+    endpoint_secret = "whsec_r6rZghMXywoVVUk1MmAKPisu7F1bC16S"
+    event = None
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, endpoint_secret)
+    except ValueError:
+        # invalid payload
+        return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError:
+        # invalid signature
+        return HttpResponse(status=400)
+
+    if event["type"] == "checkout.session.completed":
+        # retrieve the session data
+        session = event['data']['object']
+        handle_payment(session)
+
+    return HttpResponse(status=200)
+
+
+def handle_payment(session):
+    print(session)
+    pass
