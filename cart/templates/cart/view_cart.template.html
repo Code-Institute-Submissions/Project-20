@@ -20,4 +20,7 @@
     {% endfor %}
 </ul>
 <h3>Total Price: ${{total|floatformat:2}}</h3>
+<a href="{% url 'checkout_route' %}" class="btn btn-primary btn-sm">Checkout</a>
 {% endblock %}
+
+
