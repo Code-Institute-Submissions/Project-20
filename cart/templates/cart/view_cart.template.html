@@ -9,7 +9,7 @@
     <li>
         {{i.name}} x {{i.qty}}<br>
         Price per Item: ${{i.price|floatformat:2}}<br>
-        Total price: ${{i.total_price}}
+        Total price: ${{i.total_price|floatformat:2}}
         <form method="POST" action="{% url 'update_quantity_route' kimchi_id=i.id %}">
             {%csrf_token%}
             <input type="text" name="qty" value="{{i.qty}}" style="width: 40px;"/>
