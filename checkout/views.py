@@ -2,8 +2,10 @@ from django.shortcuts import render, reverse, HttpResponse, get_object_or_404
 from django.conf import settings
 import stripe
 from kimchis.models import Kimchi
+from .models import Purchase
 from django.contrib.sites.models import Site
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
 
 
 def checkout(request):
@@ -16,7 +18,8 @@ def checkout(request):
             "name": kimchi_model.title,
             "amount": int(kimchi_model.price * 100),
             "currency": "sgd",
-            "quantity": kimchi['qty']
+            "quantity": kimchi['qty'],
+            "description": kimchi_model.id
         }
         line_items.append(item)
 
@@ -27,6 +30,7 @@ def checkout(request):
     session = stripe.checkout.Session.create(
         payment_method_types=["card"],  # take credit cards
         line_items=line_items,
+        client_reference_id=request.user.id,
         success_url=domain + reverse(checkout_success),
         cancel_url=domain + reverse(checkout_cancelled)
     )
@@ -75,4 +79,14 @@ def payment_completed(request):
 
 def handle_payment(session):
     print(session)
-    pass
+    user = get_object_or_404(User, pk=session['client_reference_id'])
+
+    for line_item in session["display_items"]:
+        kimchi_id = int(line_item['custom']['description'])
+        kimchi_model = get_object_or_404(Kimchi, pk=kimchi_id)
+
+        # create the purchase model
+        purchase = Purchase()
+        purchase.kimchi_id = kimchi_model
+        purchase.user_id = user
+        purchase.save()
