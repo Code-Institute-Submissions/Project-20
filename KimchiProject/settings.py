@@ -109,7 +109,7 @@ WSGI_APPLICATION = 'KimchiProject.wsgi.application'
 # Simulate Django to send out email
 TEST_EMAIL = os.environ.get('TEST_EMAIL')
 
-if TES_EMAIL == 1:
+if TEST_EMAIL == 1:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
