@@ -66,7 +66,7 @@ def payment_completed(request):
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
 
     # endpoint_secret = settings.SIGNING_SECRET
-    endpoint_secret = "whsec_B7nincUGSuhaB9SkFh7GNWDzmsiUFkdf"
+    endpoint_secret = settings.SIGNING_SECRET
     event = None
 
     try:
