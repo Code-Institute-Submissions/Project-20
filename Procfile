@@ -1,0 +1,1 @@
+web: gunicorn KimchiProject.wsgi:application
