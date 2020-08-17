@@ -13,16 +13,20 @@ def checkout(request):
     stripe.api_key = settings.STRIPE_SECRET_KEY
     cart = request.session.get('shopping_cart', {})
     line_items = []
+
+    # store all the ids of the kimchis which we are purchasing
+    all_kimchi_ids = []
+
     for kimchi_id, kimchi in cart.items():
         kimchi_model = get_object_or_404(Kimchi, pk=kimchi_id)
         item = {
             "name": kimchi_model.title,
             "amount": int(kimchi_model.price * 100),
             "currency": "sgd",
-            "quantity": kimchi['qty'],
-            "description": kimchi_model.id
+            "quantity": kimchi['qty']
         }
         line_items.append(item)
+        all_kimchi_ids.append(str(kimchi_model.id))
 
     current_site = Site.objects.get_current()
     domain = current_site.domain
@@ -31,6 +35,7 @@ def checkout(request):
     session = stripe.checkout.Session.create(
         payment_method_types=["card"],  # take credit cards
         line_items=line_items,
+        metadata={'all_kimchi_ids': ','.join(all_kimchi_ids)},
         client_reference_id=request.user.id,
         success_url=domain + reverse(checkout_success),
         cancel_url=domain + reverse(checkout_cancelled)
@@ -84,9 +89,9 @@ def payment_completed(request):
 def handle_payment(session):
     print(session)
     user = get_object_or_404(User, pk=session['client_reference_id'])
+    all_kimchi_ids = session['metadata']['all_kimchi_ids'].split(",")
 
-    for line_item in session["display_items"]:
-        kimchi_id = int(line_item['custom']['description'])
+    for kimchi_id in all_kimchi_ids:
         kimchi_model = get_object_or_404(Kimchi, pk=kimchi_id)
 
         # create the purchase model
