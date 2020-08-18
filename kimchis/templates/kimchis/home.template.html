@@ -1,11 +1,12 @@
 {% extends 'base.template.html' %}
 
-{% block title %}I'm Kimchi{% endblock %}
+{% block title %}Kimchi Palace{% endblock %}
 
 {% block content %}
-{% if request.user.is_authenticated  %}
-   <p>Welcome {{request.user}}!!!!!</p>
-{% else %}
-   <p>Please <a href="{% url 'account_login' %}">Login</a></p>
-{%endif%}
+<section class="home">
+    <div class="container">
+        <h1 class="display-1 font-weight-bold">Kimchi Palace</h1>
+        <p class="lead font-weight-bold">Bring the traditional Kimchi made with premium ingredients to your dining table</p>
+    </div>
+</section>
 {% endblock %}
