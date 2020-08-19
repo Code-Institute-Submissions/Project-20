@@ -6,42 +6,44 @@
 
 {% block content %}
 <section class="allkimchis">
-    <p class="h1 text-center mb-5 mt-5">Meet the best Kimchi in town</p>
-    
-    <div class="row">
-        <!--Search engine starts-->
-        <div class="col-sm-2 mt-5">
-            <form method="GET" id="search" class="mx-auto">
-                <div class="form-group mt-3">
-                    {{form.as_p}}
-                </div>
-                <input type="submit" id="searchBtn" class="btn btn-outline-dark mt-2" value="Search"/>
-            </form>
-            <br>
-            <p class="h6">{{kimchis | length}} kimchis available</p>
-        </div>
-        <!--Search engine ends-->
-    
-        <div class="col-sm-10">
-            <div class="row">
-                {% for k in kimchis %}
-                <div class="col-sm-4 mb-5 mt-5">
-                    <div class="card h-100 shadow mb-4" id="cardEffect">
-                        <a href="{% url 'kimchi_details_route' kimchi_id=k.id%}">
-                            <img class="card-img-top" {% cloudinary k.cover %}/>
-                            <div class="card-body">
-                                <p class="card-title h4">{{k.title}}</p>
-                                <p>Main Ingredient: {{k.main_ingredient.title}}</p>
-                                <p>${{k.price}}</p>
-                                <a class="btn btn-outline-success" href="{% url 'add_to_cart_route' kimchi_id=k.id %}">Add to cart</a>
-                            </div>
-                        </a>
+    <div class="container">
+        <p class="h1 text-center mb-5 mt-5">Meet the best Kimchi in town</p>
+        
+        <div class="row">
+            <!--Search engine starts-->
+            <div class="col-sm-2 mt-5">
+                <form method="GET" id="search" class="mx-auto">
+                    <div class="form-group mt-3">
+                        {{form.as_p}}
                     </div>
+                    <input type="submit" id="searchBtn" class="btn btn-outline-dark mt-2" value="Search"/>
+                </form>
+                <br>
+                <p class="h6">{{kimchis | length}} kimchis available</p>
+            </div>
+            <!--Search engine ends-->
+        
+            <div class="col-sm-10">
+                <div class="row">
+                    {% for k in kimchis %}
+                    <div class="col-sm-4 mb-5 mt-5">
+                        <div class="card h-100 shadow mb-4" id="cardEffect">
+                            <a href="{% url 'kimchi_details_route' kimchi_id=k.id%}">
+                                <img class="card-img-top" {% cloudinary k.cover %}/>
+                                <div class="card-body">
+                                    <p class="card-title h4">{{k.title}}</p>
+                                    <p>Main Ingredient: {{k.main_ingredient.title}}</p>
+                                    <p>${{k.price}}</p>
+                                    <a class="btn btn-outline-success" href="{% url 'add_to_cart_route' kimchi_id=k.id %}">Add to cart</a>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
-    
+
     </div>
 </section>
 {% endblock %}

@@ -11,95 +11,107 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/0b10d58be2.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gothic+A1&family=Nanum+Gothic&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Average&family=Cormorant+Upright:wght@700&family=Noto+Serif+KR:wght@700&family=Roboto&family=Song+Myung&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css">
+	<script src="https://kit.fontawesome.com/0b10d58be2.js" crossorigin="anonymous"></script>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gothic+A1&family=Nanum+Gothic&family=Nanum+Myeongjo&display=swap"
+		rel="stylesheet">
+	<link
+		href="https://fonts.googleapis.com/css2?family=Average&family=Cormorant+Upright:wght@700&family=Noto+Serif+KR:wght@700&family=Roboto&family=Song+Myung&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css">
 	<title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
-    <!--Sub-navbar starts-->
-    <section class="subnav">
-        <div class="row px-3">
-            <div class="col">
-                <!--User login status-->
-                {% if request.user.is_authenticated  %}
-                    <span class="text-muted">Welcome {{request.user}}</span>
-                {% else %}
-                    <span class="text-muted">Please <a href="{% url 'account_login' %}">Login</a></span>
-                {%endif%}
-            
-                <!--Login/Logout link-->
-                {% if request.user.is_authenticated %}
-                    <a class="nav-link font-weight-bold float-right" href="{% url 'account_logout' %}?next=/home">Logout</a>
-                {% else %}
-                    <a class="nav-link font-weight-bold float-right" href="{% url 'account_login' %}">Login</a>
-                {% endif %}
+	<!--Sub-navbar starts-->
+	<section class="subnav">
+		<div class="row px-3">
+			<div class="col">
+				<!--User login status-->
+				{% if request.user.is_authenticated  %}
+				<span class="text-muted">Welcome {{request.user}}</span>
+				{% else %}
+				<span class="text-muted">Please <a href="{% url 'account_login' %}">Login</a></span>
+				{%endif%}
 
-                <!--Sign Up link-->
-                {% if request.user.is_authenticated %}
+				<!--Login/Logout link-->
+				{% if request.user.is_authenticated %}
+				<a class="nav-link font-weight-bold float-right" href="{% url 'account_logout' %}?next=/home">Logout</a>
+				{% else %}
+				<a class="nav-link font-weight-bold float-right" href="{% url 'account_login' %}">Login</a>
+				{% endif %}
 
-                {% else %}
-                    <a class="nav-link font-weight-bold float-right" href="{% url 'account_signup' %}">Sign Up</a>
-                {% endif %}
-            </div>
-        </div>
+				<!--Sign Up link-->
+				{% if request.user.is_authenticated %}
 
-        <div class="row">
-            <div class="col">
-                <!--Flash messages-->
-                {% if messages %}  
-                    <div class="alert alert-success" id="flashMSG">    
-                        {% for message in messages %}
-                        <div>
-                            {{ message }}
-                        </div>
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            </div>
-        </div> 
-    </section>
-    <!--Sub-navbar ends-->
+				{% else %}
+				<a class="nav-link font-weight-bold float-right" href="{% url 'account_signup' %}">Sign Up</a>
+				{% endif %}
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col">
+				<!--Flash messages-->
+				{% if messages %}
+				<div class="alert alert-success" id="flashMSG">
+					{% for message in messages %}
+					<div>
+						{{ message }}
+					</div>
+					{% endfor %}
+				</div>
+				{% endif %}
+			</div>
+		</div>
+	</section>
+	<!--Sub-navbar ends-->
 
 
 	<!--Navbar starts-->
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'home_route' %}">Kimchi Palace</a>
+		<a class="navbar-brand" href="{% url 'home_route' %}">Kimchi Palace</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
 				<li class="nav-item active">
-					<a class="nav-link font-weight-bold" href="{% url 'all_kimchis_route' %}">All Kimchis <span class="sr-only"></span></a>
+					<a class="nav-link font-weight-bold" href="{% url 'all_kimchis_route' %}">All Kimchis
+						<span class="sr-only"></span></a>
 				</li>
 				<li class="nav-item active">
-					<a class="nav-link font-weight-bold" href="{% url 'all_reviews_route' %}">Reviews <span class="sr-only"></span></a>
+					<a class="nav-link font-weight-bold" href="{% url 'all_reviews_route' %}">Reviews
+						<span class="sr-only"></span></a>
 				</li>
 			</ul>
-            
-            <!--Search Engine-->
-            <form class="form-inline my-2 my-lg-0" action="{% url 'all_kimchis_route' %}" method="GET">
+
+			<!--Search Engine-->
+			<form class="form-inline my-2 my-lg-0" action="{% url 'all_kimchis_route' %}" method="GET">
 				<input class="form-control mr-sm-2 float-left" type="search" placeholder="Search" aria-label="Search" name="title" style="width: 70%;">
 				<button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
 			</form>
 
-            <!--Shopping cart-->
-            <div class="header">
-                <a href="{% url 'view_cart_route' %}"><img src="{% static 'img/cart.png' %}"/> ({{number_of_items}})</a>
-            </div>
-            &ensp;
+			<!--Shopping cart-->
+			<div class="header">
+				<a href="{% url 'view_cart_route' %}"><img src="{% static 'img/cart.png' %}"/> ({{number_of_items}})</a>
+			</div>
+			&ensp;
 
 		</div>
 	</nav>
-    <!--Navbar ends-->
+	<!--Navbar ends-->
 
 
-    <!--block content-->
-    {% block content %}
-    {% endblock %}
+	<!--block content-->
+	{% block content %}
+	{% endblock %}
+
+    
+	<!--button to scroll back to the top-->
+	<button id="scroll_btn"><i class="fas fa-caret-up fa-2x"></i></button>
+
+    
 
 
 	<!-- Optional JavaScript -->
@@ -113,16 +125,44 @@
 		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
 	</script>
 
-    <!--for flash messages to dissappear after some time-->
-    <script>
+
+	<script>
+	//for flash messages to dissappear after some time
     setTimeout(function() {
         $('#flashMSG').fadeOut();
     }, 3000);
-    </script>
 
-    <!--block js starts-->
+
+    // Button for user to scroll back to the top
+    (function () {        
+        // When the user scrolls down 200px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction();};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                mybutton.style.display = "block";
+            } else if (document.body.scrollTop < 200 || document.documentElement.scrollTop < 200) {
+                mybutton.style.display = "none";
+            } else {
+                mybutton.style.opacity = "none";
+            }
+        }
+
+        const mybutton = document.getElementById("scroll_btn");
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        mybutton.addEventListener ('click', topFunction);
+    })();
+	</script>
+
+	<!--block js starts-->
 	{% block js %}
-    {% endblock %}
+	{% endblock %}
 </body>
 
 </html>
