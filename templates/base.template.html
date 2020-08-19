@@ -37,7 +37,11 @@
                 {% endif %}
 
                 <!--Sign Up link-->
-                <a class="nav-link font-weight-bold float-right" href="{% url 'account_signup' %}">Sign Up</a>
+                {% if request.user.is_authenticated %}
+                
+                {% else %}
+                    <a class="nav-link font-weight-bold float-right" href="{% url 'account_signup' %}">Sign Up</a>
+                {% endif %}
             </div>
         </div>
 
