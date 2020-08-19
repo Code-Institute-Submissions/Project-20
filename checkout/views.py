@@ -51,7 +51,7 @@ def checkout_success(request):
     # empty the shopping cart
     request.session['shopping_cart'] = {}
     messages.success(request, "Your purchase made successfully")
-    return redirect(reverse("all_kimchis_route"))
+    return redirect(reverse("my_purchase_route"))
 
 
 def checkout_cancelled(request):
