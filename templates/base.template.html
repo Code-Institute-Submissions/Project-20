@@ -13,7 +13,8 @@
 		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/0b10d58be2.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gothic+A1&family=Nanum+Gothic&family=Nanum+Myeongjo&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Average&family=Cormorant+Upright:wght@700&family=Noto+Serif+KR:wght@700&family=Roboto&family=Song+Myung&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css">
 	<title>{% block title %}{% endblock %}</title>
 </head>
 
@@ -38,7 +39,7 @@
 
                 <!--Sign Up link-->
                 {% if request.user.is_authenticated %}
-                
+
                 {% else %}
                     <a class="nav-link font-weight-bold float-right" href="{% url 'account_signup' %}">Sign Up</a>
                 {% endif %}

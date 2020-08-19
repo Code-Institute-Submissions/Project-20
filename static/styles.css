@@ -63,14 +63,15 @@ input#id_title.textinput.textInput.form-control, img.card-img-top {
 
 
 /* Base template */
-.navbar, .subnav {
-    font-family: 'Gothic A1', sans-serif;
-}
-
 .navbar-brand {
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'Cormorant Upright', serif;
     font-size: 1.8rem;
     font-weight: 900;
+    
+}
+
+.navbar, .subnav {
+    font-family: 'Nanum Myeongjo', sans-serif;
 }
 
 .navbar .mr-sm-2 {
@@ -97,7 +98,7 @@ input#id_title.textinput.textInput.form-control, img.card-img-top {
 
 /* Home page */
 .home {
-    height: 85vh;
+    height: 95vh;
     background-image: linear-gradient(to right, rgba(96, 96, 99, 0.411), rgba(153, 149, 149, 0.329)),  url('img/homeImg.jpg');
     background-size: cover;
     background-repeat: no-repeat; 
@@ -108,11 +109,11 @@ input#id_title.textinput.textInput.form-control, img.card-img-top {
 }
 
 .home h1 {
-    color: whitesmoke;
-    font-family: 'Nanum Myeongjo', serif;
+    color: white;
+    font-family: 'Cormorant Upright', serif;
 }
 
 .home p {
     color: whitesmoke;
-    font-family: 'Gothic A1', sans-serif;
+    font-family: 'Nanum Gothic',  sans-serif;
 }
