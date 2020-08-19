@@ -100,3 +100,10 @@ def handle_payment(session):
         purchase.kimchi_id = kimchi_model
         purchase.user_id = user
         purchase.save()
+
+
+def my_purchase(request):
+    purchase = Purchase.objects.all()
+    return render(request, 'checkout/my_purchase.template.html', {
+        'purchase': purchase
+    })

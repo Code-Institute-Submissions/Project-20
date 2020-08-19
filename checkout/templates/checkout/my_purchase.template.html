@@ -1,0 +1,18 @@
+{% extends 'base.template.html' %}
+
+{% block title %}My Purchase{% endblock %}
+
+{% block content %}
+<div class="container">
+    <ul>
+        {%for p in purchase %}
+        <li>
+            <p>Item: {{p.kimchi_id}}</p>
+            <p>Quantity: </p>
+            <p>Purchase Date: {{p.purchase_date|date:"d.m.Y"}}</p>
+            <p>User: {{p.user_id}}</p>
+        </li>
+        {%endfor%}
+    </ul>
+</div>
+{% endblock %}
