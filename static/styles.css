@@ -54,6 +54,12 @@
 }
 
 
+/*For flash message */ 
+.alert {
+    margin-bottom: 0;
+}
+
+
 /* For product images displayed on card */
 input#id_title.textinput.textInput.form-control, img.card-img-top {
     object-fit: cover;
@@ -67,14 +73,19 @@ input#id_title.textinput.textInput.form-control, img.card-img-top {
     font-family: 'Cormorant Upright', serif;
     font-size: 1.8rem;
     font-weight: 900;
+    text-shadow: 0.5px 0.5px #333;
 }
 
-.navbar, .subnav {
-    font-family: 'Song Myung', serif;
+.navbar {
+    font-family: 'Nanum Gothic',  sans-serif;
 }
 
 .navbar .mr-sm-2 {
     margin-right: 0 !important;
+}
+
+.subnav {
+    font-family: 'Song Myung', serif;
 }
 
 .subnav a, .subnav a {
@@ -182,4 +193,15 @@ footer i, footer a, footer p {
 .home p {
     color: whitesmoke;
     font-family: 'Nanum Gothic',  sans-serif;
+}
+
+
+/* 'All Kimchis' page */
+.allkimchis {
+    background-color: white;
+    font-family: 'Average', serif;
+}
+
+.allkimchis .font {
+    font-family: 'Cormorant Upright', serif;
 }
