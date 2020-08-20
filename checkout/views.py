@@ -95,7 +95,7 @@ def handle_payment(session):
     for kimchi_id in all_kimchi_ids:
         kimchi_model = get_object_or_404(Kimchi, pk=kimchi_id)
 
-        # create the purchase model
+        # create the purchase object
         purchase = Purchase()
         purchase.kimchi_id = kimchi_model
         purchase.user_id = user
@@ -103,7 +103,8 @@ def handle_payment(session):
 
 
 def my_purchase(request):
-    purchase = Purchase.objects.all()
+    user_id = request.user.id
+    purchase = Purchase.objects.filter(user_id=user_id)
     return render(request, 'checkout/my_purchase.template.html', {
         'purchase': purchase
     })
