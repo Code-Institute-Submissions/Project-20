@@ -19,7 +19,7 @@ def add_to_cart(request, kimchi_id):
             'total_price': float(kimchi_to_be_added.price)
         }
         messages.success(
-            request, f"Added '{kimchi_to_be_added.title}' to the shopping cart")
+            request, f"'{kimchi_to_be_added.title}' added to your cart")
 
     else:
         cart[kimchi_id]['qty'] += 1
@@ -67,7 +67,7 @@ def update_quantity(request, kimchi_id):
             request.POST['qty']) * float(cart[kimchi_id]['price'])
         request.session['shopping_cart'] = cart
         messages.success(
-            request, f"Quantity for {cart[kimchi_id]['name']} has been changed")
+            request, "Quantity updated succesfully")
         return redirect(reverse('view_cart_route'))
     else:
         messages.success(request, "Kimchi does not exitst in your cart")

@@ -205,3 +205,34 @@ footer i, footer a, footer p {
 .allkimchis .font {
     font-family: 'Cormorant Upright', serif;
 }
+
+
+/* 'Shopping Cart' page */
+.cart {
+    font-family: 'Roboto', sans-serif;   
+}
+
+.cart h1 {
+    font-family: 'Cormorant Upright', serif;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.cart h3 {
+    color: green;
+}
+
+.cart .delete {
+    color: #333;
+}
+
+.cart .qty {
+    width: 44px;
+    height: 33px;
+}
+
+.cart hr {
+    border: 1.5px solid green;
+    border-radius: 5px;
+    margin-bottom: 10rem;
+}
