@@ -1,4 +1,5 @@
 {% extends 'base.template.html' %}
+{% load cloudinary %}
 
 {% block title %}Shopping cart{% endblock %}
 
@@ -18,7 +19,7 @@
 			{%for key, i in cart.items %}
 			<tbody>
 				<tr>
-					<td>{{i.name}}</td>
+					<td><a href="{% url 'kimchi_details_route' kimchi_id=i.id %}">{{i.name}}</a></td>
 					<td>
 						<form method="POST" action="{% url 'update_quantity_route' kimchi_id=i.id %}">
 							${{i.price|floatformat:2}} x {{i.qty}}&ensp;

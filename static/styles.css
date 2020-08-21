@@ -222,6 +222,10 @@ footer i, footer a, footer p {
     color: green;
 }
 
+.cart a {
+    color: inherit;
+    text-decoration: none;
+}
 .cart .delete {
     color: #333;
 }
