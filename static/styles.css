@@ -207,6 +207,57 @@ footer i, footer a, footer p {
 }
 
 
+/* 'Kimchi Details' page */
+.kimchiDetails {
+    font-family: 'Roboto', sans-serif;   
+}
+
+.kimchiDetails h4 {
+    font-family: 'Cormorant Upright', serif;
+}
+
+.kimchiDetails td {
+    color: #555555;
+}
+
+.kimchiDetails .cloudinaryImg {
+    width: 350px;
+    height: auto;
+}
+
+.kimchiDetails .btnPosition {
+        text-align: right;
+    }
+
+.kimchiDetails hr {
+    border: 1.5px solid green;
+    border-radius: 5px;
+    margin-bottom: 3rem;
+}
+
+.kimchiDetails .bottomline {
+    margin-bottom: 8rem;
+}
+
+.kimchiDetails .spacingTop {
+    margin-top: 5rem;
+}
+
+.kimchiDetails table, .kimchiDetails td, .kimchiDetails td  {
+    padding: 0.4rem;
+}
+
+
+@media only screen and (max-width:340px) {
+    .kimchiDetails a {
+        font-size: 0.75rem;  
+    }
+
+    .kimchiDetails .btnPosition {
+        text-align: center;
+    }
+}
+
 /* 'Shopping Cart' page */
 .cart {
     font-family: 'Roboto', sans-serif;   

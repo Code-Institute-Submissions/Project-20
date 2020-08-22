@@ -4,33 +4,65 @@
 {% block title %}{{kimchi.title}}{% endblock %}
 
 {% block content %}
-<div class="row py-5">
-    <div class="col">
-        <table class="table table-bordered">
-        <tbody>
-            <tr>
-                <img class="card-img-top" {% cloudinary kimchi.cover %}/>
-            </tr>
-        </tbody>
-        </table>
-    </div>
+<section class="kimchiDetails">
+    <div class="container">
+        <div class="row spacingTop">
+            <div class="col mt-5">
+                <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <img class="img-fluid cloudinaryImg" {% cloudinary kimchi.cover %}
+                    </tr>
+                </tbody>
+                </table>
+            </div>
 
-    <div class="col">
-        <p>Product Name: {{kimchi.title}}</p>
-        <p>Desc: {{kimchi.desc}}</p>
-        <p>Price: ${{kimchi.price}}</p>
-        <p>Manufactured Date: {{kimchi.manufactured_date|date:"d.m.Y"}}</p>
-        <p>Expiry Date: {{kimchi.expiry_date|date:"d.m.Y"}}</p>
-        <p>Main Ingredient: {{kimchi.main_ingredient}}</p>
-        <p>Tags:
-            {% for t in kimchi.tags.all %}
-            <span class="badge badge-pill badge-primary">{{t.title}}</span>
-            {% endfor %}
-        </p>
-    </div>
-</div>
-<div>
-    <a class="btn btn-primary" href="{% url 'add_to_cart_route' kimchi_id=kimchi.id %}">Add to cart</a>
-</div>
+            <div class="col py-5">
+                <table>
+                    <h4>{{kimchi.title}}</h4>
+                    <hr>
+                    <tr>
+                        <th scope="row">Price</th>
+                        <td>${{kimchi.price}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Main Ingredient</th> 
+                        <td>{{kimchi.main_ingredient}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Description</th>
+                        <td>{{kimchi.desc}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Manufactured Date</th> 
+                        <td>{{kimchi.manufactured_date|date:"d.m.Y"}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Expiry Date</th>
+                        <td>{{kimchi.expiry_date|date:"d.m.Y"}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Tags</th>
+                        <td>
+                            {% for t in kimchi.tags.all %}
+                                <span class="badge badge-pill badge-success">{{t.title}}</span>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
+        <div class="row">
+			<div class="col mb-3 btnPosition">
+                <a href="{% url 'add_to_cart_route' kimchi_id=kimchi.id %}" class="btn btn-outline-dark btn-sm">Add to cart</a>
+				<a href="{% url 'all_kimchis_route' %}" class="btn btn-outline-dark btn-sm">Continue Shopping</a>
+			</div>
+		</div>
+		<hr class="bottomline">
+
+
+
+    </div>
+</section>
 {% endblock %}
