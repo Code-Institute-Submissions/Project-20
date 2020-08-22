@@ -1,19 +1,39 @@
 {% extends 'base.template.html' %}
 
-{% block title %}My Purchase{% endblock %}
+{% block title %}My Purchases{% endblock %}
 
 {% block content %}
-<div class="container">
-    <ul>
-        {%for p in purchase %}
-        <li>
-            <p>Item: {{p.kimchi_id}}</p>
-            <p>Purchase Date: {{p.purchase_date|date:"d.m.Y"}}</p>
-            <p>User: {{p.user_id}}</p>
-        </li>
-        {% empty %}
-        <h1>No past puchase</h1>
-        {%endfor%}
-    </ul>
-</div>
+<section class="myPurchase">
+    <div class="container">
+    <h1 class="text-center">My Purchases</h1>
+
+    <table class="table">
+			<thead>
+				<tr>
+					<th>Date Purchased</th>
+					<th>Item</th>
+				</tr>
+			</thead>
+			{%for p in purchase %}
+			<tbody>
+				<tr>
+                    <td>{{p.purchase_date|date:"d.m.Y"}}</td>
+					<td>{{p.kimchi_id}}</td>
+				</tr>
+			</tbody>
+
+            <!--if there is no past purchases-->
+            {% empty %}
+            <h3>※No Past Puchases</h3>
+            {%endfor%}
+		</table>
+
+        <div class="row">
+			<div class="col text-right mb-1 mt-5">
+				<a href="{% url 'all_kimchis_route' %}" class="btn btn-outline-dark btn-sm">Continue Shopping</a>
+			</div>
+		</div>
+        <hr>
+    </div>
+</section>
 {% endblock %}
