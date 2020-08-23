@@ -1,69 +1,71 @@
 {% extends 'base.template.html' %}
 {% load cloudinary %}
 
-{% block title %}Reiviews{% endblock %}
+{% block title %}Reiview | {{review.product_name}}{% endblock %}
 
 {% block content %}
-<h1 class="text-center py-5">Review on "{{review.product_name}}"</h1>
+<section class="reveiewDetails">
+    <div class="container">
+        <h1 class="text-center py-5">Review on {{review.product_name}}</h1>
 
-<img class="card-img-top" {% cloudinary review.cover %}/>
+        <div class="card">
+            {% cloudinary review.cover %}
+        </div>
 
-<table class="table table-bordered">
-  <tbody>
-    <tr>
-      <td class="text-muted">Title</td>
-      <td>{{review.title}}</td>
-    </tr>
-    <tr>
-      <td class="text-muted">User</td>
-      <td>{{review.user}}</td>
-    </tr>
-    <tr>
-      <td class="text-muted">Post date</td>
-      <td>{{review.published|date:"d.m.Y"}}</td>
-    </tr>
-    <tr>
-      <td class="text-muted">Last updated date</td>
-      <td>{{review.last_updated|date:"d.m.Y"}}</td>
-    </tr>
-    <tr>
-      <td colspan="2" id="TableContent"><br>{{review.content}}</td>
-    </tr>
-  </tbody>
-</table>
+        <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td class="text-muted">Title</td>
+                <td>{{review.title}}</td>
+            </tr>
+            <tr>
+                <td class="text-muted">User</td>
+                <td>{{review.user}}</td>
+            </tr>
+            <tr>
+                <td class="text-muted">Post date</td>
+                <td>{{review.published|date:"d.m.Y"}}</td>
+            </tr>
+            <tr>
+                <td class="text-muted">Last updated date</td>
+                <td>{{review.last_updated|date:"d.m.Y"}}</td>
+            </tr>
+            <tr>
+                <td colspan="2" id="TableContent"><br>{{review.content}}</td>
+            </tr>
+        </tbody>
+        </table>
 
-<div class="row mx-auto mb-5">
-    <div class="col" id="fitBtn">
-        <a class="btn btn-outline-secondary" href="{% url 'all_reviews_route' %}">Go to list</a>
-        <a class="btn btn-outline-secondary px-3 float-right ml-1" href="{% url 'delete_review_route' review_id=review.id %}">Delete</a>
-        <a class="btn btn-outline-secondary px-4 float-right" href="{% url 'update_review_route' review_id=review.id %}">Edit</a>
+        <div class="row mx-auto mb-5">
+            <div class="col" id="fitBtn">
+                <a class="btn btn-outline-secondary" href="{% url 'all_reviews_route' %}">Go to list</a>
+                <a class="btn btn-outline-secondary px-3 float-right ml-1" href="{% url 'delete_review_route' review_id=review.id %}">Delete</a>
+                <a class="btn btn-outline-secondary px-4 float-right" href="{% url 'update_review_route' review_id=review.id %}">Edit</a>
+            </div>
+        </div>
+
+        <!--Comments starts-->
+        <p class="h4">Comments</p>
+        <hr class="mb-0">
+
+        {% for c in comments %}
+        <table class="table">
+            <tr>
+            <td width="50">{{c.user}}</td>
+            <td>{{c.text}}</td>
+            <td class="text-right">{{c.comment_date|date:"d-m-Y H:i:s"}}</td>
+            </tr>
+        </table>
+        {%endfor%}
+
+        <div class="row mx-auto mt-4 mb-5 spacing">
+            <div class="col" id="fitBtn2">
+                <a class="btn btn-outline-dark btn-block" href="{% url 'create_comment_route' review_id=review.id %}">Leave a comment</a>
+            </div>
+        </div>
+        <!--Comments ends-->
+        
     </div>
-</div>
-
-
-
-<!--Comments starts-->
-<p class="h4">Comments</p>
-<hr class="mb-0">
-
-
-
-{% for c in comments %}
-<table class="table">
-    <tr>
-      <td width="50">{{c.user}}</td>
-      <td>{{c.text}}</td>
-      <td class="text-right">{{c.comment_date|date:"d-m-Y H:i:s"}}</td>
-    </tr>
-</table>
-{%endfor%}
-
-
-<div class="row mx-auto mt-4 mb-5">
-    <div class="col" id="fitBtn2">
-        <a class="btn btn-outline-secondary btn-block" href="{% url 'create_comment_route' review_id=review.id %}">Leave a comment</a>
-    </div>
-</div>
-<!--Comments ends-->
+</section>
 {% endblock %}
 

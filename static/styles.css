@@ -18,14 +18,6 @@
 }
 
 
-/* To give user-interactions on display cards upon mouseover */
-#cardEffect {
-    transition: 0.5s ease;
-}
-
-#cardEffect:hover {
-    transform: scale(1.1);
-}
 
 
 /* Search engine*/
@@ -114,7 +106,6 @@ input#id_title.textinput.textInput.form-control, img.card-img-top {
     right: 30px;
     z-index: 99;
     font-size: 15px;
-    border: none;
     outline: none;
     background-color: whitesmoke;
     color: #333;
@@ -123,6 +114,7 @@ input#id_title.textinput.textInput.form-control, img.card-img-top {
     padding-left: 10px;
     padding-bottom: 5px;
     border-radius: 4px;
+    border: solid 1.5px green;
   }
  
   @media screen and (max-width: 770px) {
@@ -198,12 +190,20 @@ footer i, footer a, footer p {
 
 /* 'All Kimchis' page */
 .allkimchis {
-    background-color: white;
     font-family: 'Average', serif;
 }
 
 .allkimchis .font {
     font-family: 'Cormorant Upright', serif;
+}
+
+.allkimchis img {
+    max-width: 100%;
+    transition: 0.5s ease;
+}
+
+.allkimchis img:hover {
+    transform: scale(1.1);
 }
 
 
@@ -220,9 +220,10 @@ footer i, footer a, footer p {
     color: #555555;
 }
 
-.kimchiDetails .cloudinaryImg {
+.kimchiDetails img {
     width: 350px;
     height: auto;
+    max-width: 100%;
 }
 
 .kimchiDetails .btnPosition {
@@ -312,4 +313,68 @@ footer i, footer a, footer p {
     border: 1.5px solid green;
     border-radius: 5px;
     margin-bottom: 10rem;
+}
+
+
+/* 'All reviews' page */
+.allreviews {
+    font-family: 'Roboto', sans-serif; 
+}
+
+.allreviews h1 {
+    font-family: 'Cormorant Upright', serif;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.allreviews img {
+    width: 120px;
+    height: auto;
+    max-width: 100%;
+}
+
+.allreviews div.col-4 {
+    text-align: right;
+    padding-right: 2rem;
+}
+
+.allreviews .card {
+    margin-bottom: 10rem;
+}
+
+.allreviews hr.line {
+    border: 1.5px solid green;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+
+/* 'Details review' page */
+.reveiewDetails {
+    font-family: 'Roboto', sans-serif; 
+}
+
+.reveiewDetails img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.reveiewDetails hr {
+    border: 1.5px solid green;
+    border-radius: 5px;
+}
+
+.reveiewDetails .spacing {
+    padding-bottom: 8rem;
+}
+
+.reveiewDetails h1 {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    font-family: 'Cormorant Upright', serif;
+}
+
+.reveiewDetails .h4 {
+    margin-top: 5rem;
 }

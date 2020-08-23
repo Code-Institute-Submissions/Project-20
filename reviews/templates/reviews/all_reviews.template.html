@@ -1,30 +1,39 @@
 {% extends 'base.template.html' %}
+{% load cloudinary %}
 
 {% block title %}Reiviews{% endblock %}
 
 {% block content %}
 <section class="allreviews">
-    <p class="h1 text-center mb-5 mt-5">Reviews on I'm Kimchi</p>
+     <div class="container">
+        <h1 class=" text-center">Reviews on our Kimchis</h1>
 
-    <div class="row mx-auto mb-3">
-        <div class="col" id="fitBtn">
-            <a class="btn btn-outline-secondary float-right" href="{% url 'create_review_route' %}">Post a review</a>
+        <div class="row mx-auto mb-3">
+            <div class="col" id="fitBtn">
+                <a class="btn btn-outline-secondary float-right" href="{% url 'create_review_route' %}">Post a review</a>
+            </div>
         </div>
-    </div>
-
-    {% for r in reviews %}
-    <a href="{% url 'review_details_route' review_id=r.id %}">
-    <div class="card mb-4">
-    <div class="card-body">
-        <p>{{r.product_name}}</p>
-        <hr>
-        <h4 class="card-title">{{r.title}}</h4>
-        <p class="card-text font-italic">{{r.content}}</p>
-        <p class="text-muted">{{r.published|date:"d.m.Y"}}</p>
-        <p class="text-muted">Posted by {{r.user}}</p>
-    </div>
-    </div>
-    </a>
-    {% endfor %}
+        <hr class="line">
+        {% for r in reviews %}
+        <a href="{% url 'review_details_route' review_id=r.id %}">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{r.product_name}}</h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-8">
+                            <p class="h6 card-title">{{r.title}}</p>
+                            <p class="card-text font-italic">{{r.content}}</p>
+                            <p class="text-muted">Posted by {{r.user}} {{r.published|date:"d.m.Y"}}</p>
+                        </div>
+                        <div class="col-4">
+                            {% cloudinary r.cover %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+     </div>
 </section>
 {% endblock %}

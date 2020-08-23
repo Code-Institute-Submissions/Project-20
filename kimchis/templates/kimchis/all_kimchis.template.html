@@ -7,7 +7,7 @@
 {% block content %}
 <section class="allkimchis">
     <div class="container">
-        <div class="allkimchisBox">
+    
             <div class="row py-5">
                 <div class="col">
                     <p class="h1 text-center py-5 font">Meet the best Kimchi in town</p>
@@ -33,7 +33,7 @@
                         {% for k in kimchis %}
                         <div class="col-sm-4 mb-5 mt-5">
                             <a href="{% url 'kimchi_details_route' kimchi_id=k.id%}">
-                                <img class="img-fluid"  id="cardEffect" {% cloudinary k.cover %}
+                                {% cloudinary k.cover %}
                                 <br>
                                 <br>
                                 <div class="text-center">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+       
     </div>
 </section>
 {% endblock %}
