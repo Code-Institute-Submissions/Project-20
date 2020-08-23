@@ -609,11 +609,6 @@ input#id_title.textinput.textInput.form-control {
     margin-bottom: 1rem;
 }
 
-.verify a {
-    color: green;
-    text-decoration: none;
-}
-
 
 /* Confirmation email page */
 .emailConfirmBox {
