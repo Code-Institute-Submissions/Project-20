@@ -38,9 +38,9 @@
 
         <div class="row mx-auto mb-5">
             <div class="col" id="fitBtn">
-                <a class="btn btn-outline-secondary" href="{% url 'all_reviews_route' %}">Go to list</a>
-                <a class="btn btn-outline-secondary px-3 float-right ml-1" href="{% url 'delete_review_route' review_id=review.id %}">Delete</a>
-                <a class="btn btn-outline-secondary px-4 float-right" href="{% url 'update_review_route' review_id=review.id %}">Edit</a>
+                <a class="btn btn-outline-info" href="{% url 'all_reviews_route' %}">Go to list</a>
+                <a class="btn btn-outline-dark px-3 float-right ml-1" href="{% url 'delete_review_route' review_id=review.id %}">Delete</a>
+                <a class="btn btn-outline-success px-4 float-right" href="{% url 'update_review_route' review_id=review.id %}">Edit</a>
             </div>
         </div>
 
