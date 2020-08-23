@@ -3,22 +3,31 @@
 {% load cloudinary %}
 {% load static %}
 
-{% block title %}Share your review{% endblock %}
+{% block title %}Post a review{% endblock %}
 
 {% block content %}
-<form method="POST" enctype="multipart/form-data" id="form">
-    {% csrf_token %}
-    {{form|crispy}}
-    <input type="submit" class="btn btn-primary"/>
-</form>
+<section class="createReview">
+    <div class="container">
+        <div class="createReviewbox">
+            <h1 class="text-center mb-5">Post a review</h1>
+            <hr>
+            <form method="POST" enctype="multipart/form-data" id="form">
+                {% csrf_token %}
+                {{form|crispy}}
+                <input type="submit" class="btn btn-dark mt-4 btnPosition"/>
+            </form>
 
-<!--Uploading images starts-->
-<div class="status">
-    <span class="status_value"></span>
-</div>
-<br>
-<div class="uploaded_info_holder"></div>
-<!--Uploading images ends-->
+
+            <!--Uploading images starts-->
+            <div class="status">
+                <span class="status_value"></span>
+            </div>
+            <br>
+            <div class="uploaded_info_holder"></div>
+            <!--Uploading images ends-->
+        </div>
+    </div>
+</section>
 {% endblock %}
 
 
@@ -45,7 +54,7 @@
             $('.status_value').text('Uploading...');
         },
         }).on('cloudinarydone', function (e, data) {
-            $('.status_value').text('Uploaded');
+            $('.status_value').text('Uploaded :');
             
             // for debugging
             var info = $('<div class="uploaded_info"/>');

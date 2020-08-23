@@ -1,13 +1,21 @@
 {% extends 'base.template.html' %}
 
-{% block title %}Delete Reiviews{% endblock %}
+{% block title %}Delete | {{review.title}}{% endblock %}
 
 {% block content %}
-<p>Delete : {{review.title}}?</p>
-<h1>Are you sure you want to delete your review?</h1>
-<form method="POST">
-        {% csrf_token %}
-        <input type="submit" value="Yes"/>
-        <a href="{% url 'review_details_route' review_id=review.id %}">No</a>
-    </form>
+<section class="deletion">
+    <div class="container py-5">
+        <div class="deletionBox">
+            <div class="alert alert-danger text-center py-5">
+                <p>Are you sure you want to delete your review : {{review.title}} ?</p>
+                <hr>
+                <form method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-success mt-5 mb-5">confirm</button>
+                    <a href="{% url 'review_details_route' review_id=review.id %}" class="btn btn-dark mt-5 mb-5">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

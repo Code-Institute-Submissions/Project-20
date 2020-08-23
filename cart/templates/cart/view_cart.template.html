@@ -24,7 +24,7 @@
 							${{i.price|floatformat:2}} x {{i.qty}}&ensp;
 							{%csrf_token%}
 							<input type="text" name="qty" value="{{i.qty}}" class="qty"/>
-							<button type="submit" class="btn-dark btn-sm">Update</button>&ensp;
+							<button type="submit" class="btn btn-dark btn-sm">Update</button>&ensp;
 							<a
 								href="{% url 'remove_from_cart_route' kimchi_id=i.id %}"><i class="fas fa-trash-alt delete" title="Delete"></i></a>
 						</form>
