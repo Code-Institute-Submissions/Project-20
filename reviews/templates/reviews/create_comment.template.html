@@ -17,7 +17,7 @@
                 {% csrf_token %} 
                 {{form|crispy}}
                 <a class="btn btn-outline-dark mt-4 ml-2 px-3 btnPosition" href="{% url 'review_details_route' review_id=review.id %}">Cancel</a>
-                <input type="submit" class="btn btn-outline-success mt-4 btnPosition" value="Comment"/>
+                <input type="submit" class="btn btn-outline-success mt-4 px-4 btnPosition" value="Save"/>
             </form> 
         </div>
     </div>
