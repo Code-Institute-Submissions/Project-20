@@ -496,3 +496,111 @@ input#id_title.textinput.textInput.form-control {
         float: right;
         margin-top: 1rem; 
 }
+
+
+/* Logout page */
+.logoutBox {
+    border-radius: 4px;
+    background-color: rgba(248, 248, 245, 0.808);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.logout h1 {
+    font-family: 'Cormorant Upright', serif;
+    margin-bottom: 1rem;
+}
+
+
+/* Login page */
+.loginBox {
+    border-radius: 4px;
+    background-color: rgba(248, 248, 245, 0.808);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+.login h1 {
+    font-family: 'Cormorant Upright', serif;
+    margin-bottom: 1rem;
+}
+
+.login a {
+    color: green;
+}
+
+
+/* SignUp page*/
+.signUpBox {
+    border-radius: 4px;
+    background-color: rgba(248, 248, 245, 0.808);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.signUp h1 {
+    font-family: 'Cormorant Upright', serif;
+    margin-bottom: 1rem;
+}
+
+.signUp a {
+    color: green;
+}
+
+.signUp hr {
+    margin-bottom: 3rem;
+}
+
+/* 'Password Reset' page */
+.passwordResetBox {
+    border-radius: 4px;
+    background-color: rgba(248, 248, 245, 0.808);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.passwordReset h1 {
+    font-family: 'Cormorant Upright', serif;
+    margin-bottom: 1rem;
+}
+
+.passwordReset hr {
+    margin-bottom: 3rem;
+}
+
+
+/* Virification email page */
+.passwordResetBox {
+    border-radius: 4px;
+    background-color: rgba(248, 248, 245, 0.808);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.passwordReset h1 {
+    font-family: 'Cormorant Upright', serif;
+    margin-bottom: 1rem;
+}
