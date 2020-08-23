@@ -588,7 +588,7 @@ input#id_title.textinput.textInput.form-control {
 
 
 /* Virification email page */
-.passwordResetBox {
+.verifyfBox {
     border-radius: 4px;
     background-color: rgba(248, 248, 245, 0.808);
     padding-left: 3rem;
@@ -600,7 +600,36 @@ input#id_title.textinput.textInput.form-control {
     font-family: 'Roboto', sans-serif;
 }
 
-.passwordReset h1 {
+.verify h1 {
     font-family: 'Cormorant Upright', serif;
     margin-bottom: 1rem;
+}
+
+.verify a {
+    color: green;
+    text-decoration: none;
+}
+
+
+/* Confirmation email page */
+.emailConfirmBox {
+    border-radius: 4px;
+    background-color: rgba(248, 248, 245, 0.808);
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.emailConfirm h1 {
+    font-family: 'Cormorant Upright', serif;
+    margin-bottom: 1rem;
+}
+
+.emailConfirm a {
+    color: green;
+    text-decoration: none;
 }
