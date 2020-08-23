@@ -16,7 +16,8 @@
             <form method="POST">
                 {% csrf_token %} 
                 {{form|crispy}}
-                <input type="submit" class="btn btn-dark btnPosition" value="Comment"/>
+                <a class="btn btn-outline-dark mt-4 ml-2 px-3 btnPosition" href="{% url 'review_details_route' review_id=review.id %}">Cancel</a>
+                <input type="submit" class="btn btn-outline-success mt-4 btnPosition" value="Comment"/>
             </form> 
         </div>
     </div>

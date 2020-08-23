@@ -18,13 +18,13 @@
         <a href="{% url 'review_details_route' review_id=r.id %}">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">{{r.product_name}}</h5>
+                    <h4 class="card-title">{{r.product_name}}</h4>
                     <hr>
                     <div class="row">
                         <div class="col-8">
-                            <p class="h6 card-title">{{r.title}}</p>
+                            <p class="h5 card-title">{{r.title}}</p>
                             <p class="card-text font-italic">{{r.content}}</p>
-                            <p class="text-muted">Posted by {{r.user}} {{r.published|date:"d.m.Y"}}</p>
+                            <p class="text-muted">By {{r.user}} {{r.published|date:"d.m.Y"}}</p>
                         </div>
                         <div class="col-4">
                             {% cloudinary r.cover %}

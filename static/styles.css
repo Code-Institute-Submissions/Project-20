@@ -331,7 +331,7 @@ footer i, footer a, footer p {
 }
 
 .allreviews .card {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .allreviews .bottomSpacing {
@@ -390,17 +390,7 @@ footer i, footer a, footer p {
 
 .deletion {
     font-family: 'Cormorant Upright', serif;
-    font-size: 1.5rem;
-}
-
-.deletion p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.2rem;
-}
-
-.deletion hr {
-    border: 1.5px solid green;
-    border-radius: 5px;
+    font-size: 1.7rem;
 }
 
 
