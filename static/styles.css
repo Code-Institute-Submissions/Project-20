@@ -70,6 +70,7 @@
 
 .subnav {
     font-family: 'Song Myung', serif;
+    color: green;
 }
 
 .subnav a, .subnav a {
@@ -84,7 +85,7 @@
 }
 
 .nav-cart a {
-    color: green;
+    color: #333;
     text-decoration: none;
 }
 
