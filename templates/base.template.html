@@ -31,7 +31,7 @@
 				{% if request.user.is_authenticated  %}
 				<span>Welcome {{request.user}}</span>
 				{% else %}
-				<span>Please <a href="{% url 'account_login' %}">Login</a></span>
+				<span><a href="{% url 'account_login' %}">Login</a> to make purchase</span>
 				{%endif%}
 
 				<!--Login/Logout link-->
