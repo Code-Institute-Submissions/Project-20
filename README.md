@@ -1,39 +1,30 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Full Stack Frameworks with Django
+### Welcome to Kimchi Palace
 
-Welcome suchan5,
+[Kimchi Palace](https://kimchi-palace.herokuapp.com/)<br>
+[My Github Page](https://github.com/suchan5/Project-4)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+This website is designed and developed as an e-commerce website for the site owner to sell their home-made style Kimchi and for the external users who are interested in buying the Kimchi.
 
-## Gitpod Reminders
+# Technologies used
+* HTML5 - It was used to build the structure of the website.
+* CSS3 - It was used to give design effects and style to the website. Also, media query was used for responsive design purpose.
+* JavaScript - It was used to make the website more dynamic and interactive.
+* Python + Django - Python was used to build the full-stack web application with a relational database.
+* Postgres - Relational database, Postgres, was used for designing a database structure and store data.
+* [Cloudinary](https://cloudinary.com/) - It was used for image uploading function. Images are stored in Cloudiary's cloud.
+* [Stripe](https://stripe.com/) - It was used for online payment processing function.
+* [Google Fonts](https://fonts.google.com/) - it was used for different typographies for design effects.
+* jQuery 3.5.1 - It was used to make it easier to use JavaScript.
+* Bootstrap 4.5.2 - It was used for structure and style for the website with responsive design for different media sizes.
+* Font Awesome - It was used for concise and intuitive design effect with using icons.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
+# Data Structure
+![Dara Structure](#)
 
-A blue button should appear to click: *Make Public*,
 
-Another blue button should appear to click: *Open Browser*.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: *Make Public*,
-
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
+# Structure of the website
+[Wireframe](#)
+#### Each pages are interactive and intuitive which makes it easier for users to explore the contents throughout the website.
+* 'Home' page 
