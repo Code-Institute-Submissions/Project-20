@@ -111,4 +111,164 @@ This website is created with a focus on UI/UX that is:
 
 
 ## Features left to be implemented
-- 
+- For updating the existing reviews, the preview of the images are gone when users are editing their own reviews. I want to improve to which it keep the preview of the current images when editing.
+- Currently on 'My Purchase' page, all the past history of purchases are vabilable for viewing. I want to achieve to show only the most recent purchases upon succesful checkout.
+- I want to achieve for viewing quantities purchased in 'My Purchase' page.
+
+
+# Responsive Design
+The main purpose of the test on the responsive design is to ensure that the website works well and looks  organized in different media sizes. It was acheived by using Bootstrap, media query, and 'Inspect' function from Google Chrome.
+
+![screenshot of Kimchi Palace run on 'Am I Responsive' website](#)
+
+
+# Deployment 
+Kimchi Palace website is coded and developed in Gitpod, and deployed using a cloud based hosing platform, Heroku.
+
+1. Install dependencies
+```html
+pip3 install gunicorn
+pip3 install psycopg2
+pip3 install Pillow
+pip3 install whitenoise 
+pip3 install dj_database_url
+```
+2. Add Whitenoise to MIDDLEWARE in 'settings.py'
+```html
+MIDDLEWARE = [
+.....
+'whitenoise.middleware.WhiteNoiseMiddleware'
+]
+```
+3. Make sure to have a .gitignore file
+4. Login to Heroku
+```html
+heroku login -i
+```
+5. Create an Heroku app. It must be unique and must avoid underscore
+```html
+heroku create <app name>
+```
+6. Double check that the Heroku app created succesfully.
+```html
+git remote -v
+```
+7. Copy environment variables over
+1) Open .env file in Gitpod.
+2) Go to Heroku website > Go to my app which just created > Settings > Reval Config Vars
+3) Copy the exported variables in .bashrc over to the Config Vars
+
+8. Create Procfile in Gitpod. It must be in the same directory as 'manage.py'
+9. Add Command to Procfile
+```html
+web: gunicorn <PROJECT_FOLDER>.wsgi:application
+```
+Name of my project folder is 'KimchiProject' so it should be as below:
+```html
+web: gunicorn KimchiProject.wsgi:application
+```
+10. Update ALLOWED_HOSTS inside 'settings.py'
+Add the domain name without the HTTPS of the heroku app into the ALLOWED_HOST inside 'settings.py'
+```html
+E.g. https://kimchi-palace.herokuapp.com/ → kimchi-palace.herokuapp.com
+```
+11.Generate requirements.txt for Heroku to know what packages install.
+```html
+pip3 freeze --local > requirements.txt
+```
+12. Add STATIC_ROOT to 'settings.py' for Whitenoise to work
+```html
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+```
+Also need to input below to the templates
+```html
+{% load static %}
+```
+13. Deploy to Heroku
+Firstly, git push to Github repository
+```html
+git add .
+git commit -m "your commit message"
+git push 
+```
+and then push to Heroku
+```html
+git push heroku master
+```
+14. Setting up the database for Heroku app - Postgres database.
+Check the URL to the database
+```html
+heroku config
+```
+Copy the DATABASE_URL when it is shown. We will need this again.
+
+15. Add the DATABASE_URL to .bashrc 
+```html
+export DATABASE_URL="<database_url>"
+```
+Mine in .env is like below:
+```html
+export DATABASE_URL="postgres://
+```
+16. Change database settings in 'settings.py'
+```html
+import dj_database_url
+```
+17. Comment out the existing DATABASES setting in 'settings.py', and paste the below after the commented out lines: 
+```html
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+DATABASES = {'default': dj_database_url.parse(os.environ["DATABASE_URL"])}
+```
+
+18. Migrate the database - make sure to restart the terminal and migrate
+```html
+python3 manage.py migrate
+```
+
+19. Commit and push to Heroku
+```html
+git add .
+git commit -m "Updated settings.py"
+git push heroku master
+```
+
+20. Create a Super User - This is necessary as I have switched to a new database from Sqlite3, it would not have any old data.
+```html
+python3 manage.py createsuperuser
+```
+
+21. Attempt to access admin panel and add in models
+
+#### Errors & differences detected after deployment
+##### Stripe webhook : There is an error(404 not found)detected which did not occur when tested in Gitpod.
+
+![Stripe webhook error](static/img/webhook_error.png)
+No issue is noted when sending test webhook before deployment. Whereas after deployment, sending test webhook failed. <br>
+Nevertheless, payment is still able to process successfully in deployed app :
+![payment succeeded](static/img/payment_succeeded.png)
+
+I have tried to fix by setting up the Sites correctly in admin panel with Heroku app domain name as below (without slash at the back):
+```html
+https://kimchi-palace.herokuapp.com
+```
+Also, I have added in new webhook at stripes.com and create new endpoint and put the url as :
+```html
+https://kimchi-palace.herokuapp.com/checkout/payment_completed 
+```
+
+However the issue still remains unresolved.
+
+
+
+
+
+
+
+
+
