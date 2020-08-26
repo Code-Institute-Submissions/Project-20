@@ -340,6 +340,10 @@ footer i, footer a, footer p {
     margin-bottom: 2rem;
 }
 
+.allreviews .card-body {
+    border: solid 0.1px grey;
+}
+
 .allreviews .bottomSpacing {
     margin-bottom: 10rem;
 }
