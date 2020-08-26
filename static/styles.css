@@ -368,6 +368,14 @@ footer i, footer a, footer p {
     margin-bottom: 3%;
 }
 
+.reveiewDetails .table-bordered {
+    background-color: white;
+}
+
+.reveiewDetails .comment {
+    background-color: white;
+}
+
 .reveiewDetails img {
     width: 100%;
     height: 450px;
@@ -387,6 +395,20 @@ footer i, footer a, footer p {
 
 .reveiewDetails .h4 {
     margin-top: 6rem;
+}
+
+@media only screen and (max-width:755px) {
+    .reviewDetailsBox {
+    border-radius: 4px;
+    background-color: rgba(248, 248, 245, 0.808);
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 5rem;
+    padding-top: 5rem;
+    margin-top: 5rem;
+    margin-bottom: 10rem;
+    font-family: 'Roboto', sans-serif;
+}
 }
 
 

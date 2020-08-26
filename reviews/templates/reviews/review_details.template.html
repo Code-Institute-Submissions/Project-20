@@ -49,15 +49,17 @@
             <p class="h4">Comments</p>
             <hr class="mb-0">
 
-            {% for c in comments %}
-            <table class="table">
-                <tr>
-                <td width="50">{{c.user}}</td>
-                <td>{{c.text}}</td>
-                <td class="text-right">{{c.comment_date|date:"d-m-Y H:i:s"}}</td>
-                </tr>
-            </table>
-            {%endfor%}
+            <div class="comment">
+                {% for c in comments %}
+                <table class="table">
+                    <tr>
+                    <td width="100">{{c.user}}</td>
+                    <td>{{c.text}}</td>
+                    <td class="text-right">{{c.comment_date|date:"d-m-Y H:i:s"}}</td>
+                    </tr>
+                </table>
+                {%endfor%}
+            </div>
 
             <div class="row mx-auto mt-5">
                 <div class="col" id="fitBtn2">
