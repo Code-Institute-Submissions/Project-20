@@ -50,14 +50,14 @@ Login, logout, SignUp pages can be accessed via subnavbar.
 
 # UI/UX Design
 This website is created with a focus on UI/UX that is:
-1. Simple & clear :
+#### 1. Simple & clear :
 - This is achieved by giving consistency in design throughout the website. Also, I gave enough spacing (padding and margin) for better readability of the content.
 
-2. Easy to use :
+#### 2. Easy to use :
 - Responsiveness : For example, font size is responsive to different device sizes so that users can use the website even on smaller devices.
 - Placeholder, icons, buttons, flash messages are added to guide the users.
 
-3. Presentable :
+#### 3. Presentable :
 - A clean and theme-related image (Kimchi) was chosen and incorporated as the background to improve the overall design.
 - To give the texts a better visibility over the white background, I have added a translucent grey box (in 'Reveiw details' page and authentication pages), making the content more readable.
 - Images are uniform in size and are not pixelated even in different media sizes.
@@ -246,7 +246,7 @@ python3 manage.py createsuperuser
 #### 21. Attempt to access admin panel and add in models
 
 ## Errors & differences detected after deployment
-#### Stripe webhook : There is an error(404 not found)detected which did not occur when tested in Gitpod.
+- Stripe webhook : There is an error(404 not found)detected which did not occur when tested in Gitpod.
 
 ![Stripe webhook error](static/img/webhook_error.png)
 No issue is noted when sending test webhook before deployment. Whereas after deployment, sending test webhook failed.
