@@ -122,6 +122,7 @@ The main purpose of the test on the responsive design is to ensure that the webs
 ![screenshot of Kimchi Palace in smaller device size](static/img/responsiveness.png)
 
 
+
 # Deployment 
 Kimchi Palace website is coded and developed in Gitpod, and deployed using a cloud based hosing platform, Heroku.
 
