@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'kimchis',
     'reviews',
     'cart',
-    'checkout'
+    'checkout',
+    'website'
 ]
 
 MIDDLEWARE = [
