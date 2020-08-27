@@ -265,9 +265,51 @@ https://kimchi-palace.herokuapp.com/checkout/payment_completed
 However the issue still remains unresolved.
 
 
+# Testing
+#### Testing Purpose
+* To ensure that there are no broken images or links.
+* To ensure that the website is responsive on different devices.
+* To ensure that the website runs well on different browsers.
+* To ensure that the website's features and functions all work as intended for users.
+
+I sent the deployed URL to friends and family to test whether the website works responsively without broken images or links in different screen sizes. Also, testing was done on different browsers to ensure that the website runs well.
+#### Devices tested 
+* Oppo R11
+* iPhone XR
+* iPhone 6S
+* Galaxy S20+
+* Galaxy Tab A
+* MacBook Pro
+* iPad Air 3rd Gen 
+* HanSung Computer Ultron 2454C
+
+#### Browsers tested 
+* Google Chrome 
+* Safari 
+* Firefox 
+* Internet Exporer 
+
+
+##### Error detected
+In 'update the review' page, users are only able to upload an image at thier second attempt. It is deemed as Clouninary issue.
+##### No other error detected, except above Cloudinary error. Testing results are as expected.
 
 
 
+
+## Credit
+
+#### Images
+* [Kimchi Factory](https://www.kimchifactory.co.kr/) - for the Kimchi pictures used in 'All Kimchis' page
+* [Pixaboy](https://pixabay.com/ko/) - for the Kimchi pictures used in 'Review details' page
+* [The Paleo Diet] (https://thepaleodiet.com/what-is-kimchi-and-is-it-paleo) - for the Kimchi pictures used in 'Review details' page
+
+#### Ackowledgement
+* [W3schools](https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top) - for the button to scroll up to the top
+* [Stackoverflow](https://stackoverflow.com/questions/60936594/django-login-button-turned-to-be-logout-after-user-logged-in) - for login button turned to be logout after user logged in
+
+## Disclaimer
+This website is created for educational purpose only.
 
 
 
