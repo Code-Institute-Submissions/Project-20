@@ -119,7 +119,7 @@ This website is created with a focus on UI/UX that is:
 # Responsive Design
 The main purpose of the test on the responsive design is to ensure that the website works well and looks organized in different media sizes. It was acheived by using Bootstrap, media query, and 'Inspect' function from Google Chrome.
 
-![screenshot of Kimchi Palace run on 'Am I Responsive' website](#)
+![screenshot of Kimchi Palace in smaller device size](static/img/responsiveness.png)
 
 
 # Deployment 
