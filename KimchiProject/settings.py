@@ -29,7 +29,7 @@ SECRET_KEY = 'iyq)kla!8s&y3zz5)^kt*aui1eb=@wvafyf@-%p)(_i+1h2l=g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*", "kimchi-palace.herokuapp.com"]
+ALLOWED_HOSTS = ["kimchi-palace.herokuapp.com"]
 
 
 # Application definition
