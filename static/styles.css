@@ -18,8 +18,6 @@
 }
 
 
-
-
 /* Search engine*/
 #id_title, #id_main_ingredient, #searchBtn {
     width: 9rem;
@@ -46,7 +44,7 @@
 }
 
 
-/*For flash message */ 
+/* Flash message */ 
 .alert {
     margin-bottom: 0;
 }
@@ -135,7 +133,7 @@
 }
 
 
-/* footer section */
+/* footer */
 footer {
     background-color: #333;
     color:rgb(231, 227, 227);
@@ -401,6 +399,10 @@ footer i, footer a, footer p {
     margin-top: 6rem;
 }
 
+.reveiewDetails .width {
+    width: 7rem;
+}
+
 @media only screen and (max-width:755px) {
     .reviewDetailsBox {
     border-radius: 4px;
@@ -412,7 +414,7 @@ footer i, footer a, footer p {
     margin-top: 5rem;
     margin-bottom: 10rem;
     font-family: 'Roboto', sans-serif;
-}
+    }
 }
 
 
@@ -598,6 +600,7 @@ input#id_title.textinput.textInput.form-control {
 .signUp hr {
     margin-bottom: 3rem;
 }
+
 
 /* 'Password Reset' page */
 .passwordResetBox {
