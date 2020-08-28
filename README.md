@@ -24,11 +24,19 @@ It comprises of three main sections which are to view all the available Kimchis,
 
 
 # Data Structure
-![Data Structure](#)
+![Data Structure](static/img/ERD.png)
+Data structure of Kimchi Palace consists of 7 models :
+- User
+- Kimchi
+- Main Ingredient
+- Tag
+- Review
+- Comment
+- Purchase
 
 
 # Structure of the website
-[Wireframe](#)
+[Wireframe](https://ovenapp.io/view/XcotEWMbrg5XfN3UgApu0WBYbJWSb531/)
 #### Each page is intuitive and interactive which makes it easier for users to explore the content throughout the website.
 ##### 'Main' page 
 'Main' page is the first page the users see when they access the domain address. Jumbotron and Kimchi image is used as background in order to give a direct idea of what this e-commerce website is selling. Also, a navbar is located at the head of the page to guide users through navigation. A search engine is available at the navbar where users can search for a product they want to look for. Subnavbar is also located and accessble from every page so that users can login anytime to make purchases. 
@@ -293,7 +301,7 @@ I sent the deployed URL to friends and family to test whether the website works 
 
 
 #### Error detected
-In 'update the review' page, users are only able to upload an image at thier second attempt. It is deemed as Clouninary issue.
+In 'update the review' page, unable to update the review . It has server error(500). It deems due to Cloudinary issue in uploading images. Before deployment, I already had this issue that the images are only updated at second attemp when updating the current review.
 #### No other error detected, except above Cloudinary error. Testing results are as expected.
 
 
