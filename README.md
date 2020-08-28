@@ -48,7 +48,7 @@ Data structure of Kimchi Palace consists of 7 models :
 'Shopping Cart' page is where users can view the products they selected for future purchases. Users can update the purchase quantity or delete the item from the shopping cart by simply clicking the buttons. Also, 'Continue Shopping' and 'Add to cart' buttons are placed to make shopping easier for the users.
 ##### 'My Purchases' (authentication required)
 'My Purchases' page is where users can view the history of their past purchases. Upon checking out, users are redirected to this page and can see their purchases.
-##### 'Reviews' page
+##### 'Reviews' page (authentication required)
 'Reviews' page is where users can create, read, update, and delete their own reviews about the product. Users can also view all the reviews posted by other users to gather personal reviews about the Kimchis before making purchases.
 ##### 'Review Details' page
 'Review Details' page is where users can view the detailed review by clicking from 'Reviews' page. Users can also leave a comment below the review to share information or ideas.
